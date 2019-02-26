@@ -6,7 +6,7 @@
     <ul>
       <% @services.each do |service| %>
       <li>
-        <%= service.service_type %> | <%= service.pick_up_date.strftime("%B %d, %Y") %> | <%= service.user.last_name %> | <%= service.final_price.round %> | <%= service.commission_rate.round * 100 %>% | <span class="badge"><%= service.status %></span>
+        <%= service.service_type %> | <%= service.pick_up_date.strftime("%B %d, %Y") %> | <%= service.beneficiary.last_name %> | <%= service.final_price.round %> | <%= service.commission_rate.round * 100 %>% | <span class="badge"><%= service.status %></span>
       </li>
       <% end %>
     </ul>

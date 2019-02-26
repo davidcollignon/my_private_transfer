@@ -1,6 +1,12 @@
 <h1>Cars</h1>
 <ul>
 <% @cars.each do |car| %>
-<li><%= car.brand %></li>
+<li><%= car.brand %>
+<%= form_tag services_path do %>
+<%= hidden_field_tag 'car_id', @car.id %>
+<%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+<% end %>
+</li>
 <% end %>
 </ul>
+

@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2019_02_25_170206) do
 
-ActiveRecord::Schema.define(version: 2019_02_25_162621) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_162621) do
     t.float "number_hours_at_disposal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "driver_language"
     t.index ["beneficiary_id"], name: "index_services_on_beneficiary_id"
     t.index ["car_id"], name: "index_services_on_car_id"
     t.index ["user_id"], name: "index_services_on_user_id"

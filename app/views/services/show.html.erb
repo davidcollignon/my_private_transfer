@@ -1,3 +1,10 @@
 <h1>Services#show</h1>
 
 
+<h1>Reservation Confirmation</h1>
+<h2><%= @service.flight_number %></h2>
+<%= link_to "Delete", service_path(@service),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+<%= link_to "Edit", service_path(@service),
+      method: :patch %>

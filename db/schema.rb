@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2019_02_26_154200) do
 
-ActiveRecord::Schema.define(version: 2019_02_25_162621) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -32,11 +32,11 @@ ActiveRecord::Schema.define(version: 2019_02_25_162621) do
     t.text "description"
     t.integer "passenger_capacity"
     t.integer "luggage_capacity"
-    t.float "price_per_hour"
-    t.float "price_per_km"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price_per_km_cents", default: 0, null: false
+    t.integer "price_per_hour_cents", default: 0, null: false
     t.index ["company_id"], name: "index_cars_on_company_id"
   end
 
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_162621) do
     t.datetime "updated_at", null: false
     t.string "driver_language"
     t.integer "final_price_cents", default: 0, null: false
+    t.jsonb "payment"
     t.index ["beneficiary_id"], name: "index_services_on_beneficiary_id"
     t.index ["car_id"], name: "index_services_on_car_id"
     t.index ["user_id"], name: "index_services_on_user_id"

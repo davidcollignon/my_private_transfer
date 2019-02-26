@@ -1,0 +1,9 @@
+<h1><%= current_user.last_name  %></h1>
+
+<ul>
+<% @services.each do |service| %>
+<li><%= service.pick_up_date %> <%= service.status  %>
+  <%= service.beneficiaries.last_name %>
+</li>
+<% end %>
+</ul>

@@ -10,11 +10,28 @@ require 'faker'
     password: "password"
     )
   user.save!
-  beneficiary = Beneficiary.new(user: user)
+  #beneficiary = Beneficiary.new(user: user)
 end
 
 10.times do
-  beneficiary = Beneficiary.new(
+  company = Company.new(
+    name: Faker::Company.unique.name,
+    address: Faker::Address.full_address
     )
+  company.save!
+end
+
+10.times do
+  car = Car.new(
+    brand: Faker::Company.unique.name,
+    description: "Lorem ipsum dolor sit amet",
+    passenger_capacity: rand(1..6),
+    luggage_capacity: rand(1..10),
+    price_per_km_cents: rand(1000..5000),
+    price_per_hour_cents: rand(5000..10000),
+    company: Company.last
+    )
+  car.save!
+end
 
 puts 'Finished!'

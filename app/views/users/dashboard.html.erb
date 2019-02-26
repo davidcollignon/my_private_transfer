@@ -1,9 +1,14 @@
-<h1><%= current_user.last_name  %></h1>
+<h2> Dashboard</h2>
 
-<ul>
-<% @services.each do |service| %>
-<li><%= service.pick_up_date %> <%= service.status  %>
-  <%= service.beneficiaries.last_name %>
-</li>
-<% end %>
-</ul>
+  <% if current_user.services.nil? %>
+    <h4>You do not have any services to display yet</h4>
+  <% else %>
+    <ul>
+      <% @services.each do |service| %>
+      <li>
+        <%= service.service_type %> | <%= service.pick_up_date.strftime("%B %d, %Y") %> | <%= service.user.last_name %> | <%= service.final_price.round %> | <%= service.commission_rate.round * 100 %>% | <span class="badge"><%= service.status %></span>
+      </li>
+      <% end %>
+    </ul>
+  <% end %>
+

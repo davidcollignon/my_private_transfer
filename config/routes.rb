@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   get "/dashboard/revenues", to: "users#revenues"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :cars, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-  resources :services do
-    resources :payments, only: [:new, :create]
+  resources :cars, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    resources :services do
+      resources :payments, only: [:new, :create]
     end
   end
+end

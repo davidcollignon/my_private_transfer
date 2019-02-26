@@ -2,9 +2,9 @@
 <ul>
 <% @cars.each do |car| %>
 <li><%= car.brand %>
-<%= form_tag  new_service_path do %>
+<%= form_tag  new_car_service_path(car) do %>
 <%= hidden_field_tag 'car_id', car.id %>
-<%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+<%= link_to 'Purchase', new_car_service_path(car), class: 'btn btn-primary' %>
 <% end %>
 </li>
 <% end %>

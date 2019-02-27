@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def revenues
+
     @services = current_user.services
     @months_hash = { 1 => "January",
                      2 => "February",
@@ -21,16 +22,29 @@ class UsersController < ApplicationController
                      11 => "November",
                      12 => "December"}
 
-    @total_sales = @services.reduce(0) { |sum, service|
-      sum + service.final_price_cents
-    }
+    # @total_sales = @services.reduce(0) { |sum, service|
+    #   sum + service.final_price_cents
+    # }
+    #
+    index = 1
+    @monthly_revenue = []
+    @monthly_revenue << -1
+
+    while index < DateTime.now.month + 1 do
+      @monthly_revenue << sum_rev(index)
+    end
+
+
 
   end
 
-  private
-
-  def sum_rev_month
-
+  def sum_rev(month)
+    @total_sales = 0
+    @services.each do |service|
+      if service.pick_up_date.month == month
+        @total_sales += service.final_price_cents
+      end
+    end
+    @total_sales
   end
-
 end

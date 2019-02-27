@@ -9,7 +9,7 @@
     <% @months_hash.each do |index, month| %>
       <% if index <= DateTime.now.month %>
         <div class="row">
-          <p><%= month %> <%= @total_sales %></p>
+          <p><%= month %> <%= @monthly_revenue[index -1] %></p>
         </div>
       <% end %>
     <% end %>

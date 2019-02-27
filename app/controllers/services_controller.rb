@@ -1,6 +1,7 @@
 class ServicesController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [:index, :show, :new, :create]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
 
   def index
   end
@@ -10,15 +11,14 @@ class ServicesController < ApplicationController
   end
 
   def new
-    @car = Car.find(params[:car_id])
+    @car = Car.find(params["car_id"])
     @service = Service.new
   end
 
   def create
-    @service = Service.new(service_params)
-    @service.car = Car.find(params[:car_id])
-    @service.save
-    redirect_to car_service_path
+    @car = Car.find(params[:service][:car_id])
+    @service = Service.create!(car: @car, final_price: @car.price_per_hour_cents, status: 'pending', user: current_user)
+    redirect_to new_service_payment_path(@service)
   end
 
   def edit

@@ -1,4 +1,4 @@
-<%= simple_form_for [@car, @service] do |f| %>
+<%= simple_form_for (@service) do |f| %>
 
   <%= f.input :flight_number, label: "Flight Number" %>
   <%= f.input :driver_language, label: "Driver's Language"%>
@@ -9,5 +9,6 @@
   <%= f.input :description_odd_luggage, label: "Description of odd luggage"%>
   <%= f.input :additional_info, label: "Addtional Information"%>
   <%= f.input :commission_rate, label: "Commission" %>
+  <%= f.input :car_id, value: params[:car_id] %>
   <%= f.submit "Continue", class: "btn btn-primary" %>
- <% end %>
+ <% end =%>

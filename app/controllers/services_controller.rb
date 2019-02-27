@@ -17,7 +17,10 @@ class ServicesController < ApplicationController
 
   def create
     @car = Car.find(params[:service][:car_id])
-    @service = Service.create!(car: @car, final_price: @car.price_per_hour_cents, status: 'pending', user: current_user)
+    @hours = params[:service][:number_hours_at_disposal]
+    @commission_rate = params[:service][:commission_rate]
+    @amount = @car.price_per_hour_cents * @hours.to_i * (1 + @commission_rate.to_f)
+    @service = Service.create!(car: @car, final_price: @amount, status: 'pending', user: current_user)
     redirect_to new_service_payment_path(@service)
   end
 

@@ -1,4 +1,13 @@
-// Specific CSS for your home-page
+#banner-home {
+  background-image:url(../../images/mpt-bg.jpg);
+  background-size:cover;
+}
+
+.navbar-wagon {
+background:transparent;
+box-shadow:none;
+ }
+
 .banner {
   color: white;
   text-align: center;

@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'cars/index'
-  get 'cars/show'
   devise_for :users
   root to: 'pages#home'
   get 'pages/index', to: "pages#index"
@@ -11,6 +9,6 @@ Rails.application.routes.draw do
   resources :cars, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :services do
       resources :payments, only: [:new, :create]
-      end
     end
   end
+end

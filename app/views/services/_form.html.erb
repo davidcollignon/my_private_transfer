@@ -1,4 +1,4 @@
-<%= simple_form_for(@service) do |f| %>
+<%= simple_form_for [@car, @service] do |f| %>
 
   <%= f.input :flight_number, label: "Flight Number" %>
   <%= f.input :driver_language, label: "Driver's Language"%>

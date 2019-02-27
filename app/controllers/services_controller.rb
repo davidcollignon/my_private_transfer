@@ -16,7 +16,7 @@ class ServicesController < ApplicationController
   end
 
   def create
-    @car = Car.find(params[:service][:car_id])
+    @car = Car.find(params[:service][:car])
     @hours = params[:service][:number_hours_at_disposal]
     @commission_rate = params[:service][:commission_rate]
     @amount = @car.price_per_hour_cents * @hours.to_i * (1 + @commission_rate.to_f)
@@ -25,12 +25,18 @@ class ServicesController < ApplicationController
   end
 
   def edit
+
     @service = Service.find(params[:id])
   end
 
   def update
+
     @service = Service.find(params[:id])
-    @service.update
+    if @service.update(service_params)
+    redirect_to edit_service_path(@service)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -42,6 +48,7 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit(:flight_number, :number_of_passengers, :number_normal_luggage, :number_hand_luggage, :number_odd_luggage, :description_odd_luggage, :additional_info, :commission_rate)
+    #params.require(:service).permit(:flight_number, :number_hours_at_disposal, :number_of_passengers, :number_normal_luggage, :number_hand_luggage, :number_odd_luggage, :description_odd_luggage, :additional_info, :commission_rate, :car, :user, :pick_up_date, :final_price, :status, :payment, :driver_language, :service_type, :pick_up_address, :destination_address)
+  params.permit(:data)
   end
 end

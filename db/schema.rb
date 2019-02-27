@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_02_25_170206) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -32,11 +33,11 @@ ActiveRecord::Schema.define(version: 2019_02_25_170206) do
     t.text "description"
     t.integer "passenger_capacity"
     t.integer "luggage_capacity"
-    t.float "price_per_hour"
-    t.float "price_per_km"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price_per_km_cents", default: 0, null: false
+    t.integer "price_per_hour_cents", default: 0, null: false
     t.index ["company_id"], name: "index_cars_on_company_id"
   end
 
@@ -52,7 +53,6 @@ ActiveRecord::Schema.define(version: 2019_02_25_170206) do
     t.bigint "user_id"
     t.bigint "beneficiary_id"
     t.datetime "pick_up_date"
-    t.float "final_price"
     t.string "status"
     t.string "flight_number"
     t.integer "number_of_passengers"

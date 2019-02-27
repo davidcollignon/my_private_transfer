@@ -1,0 +1,15 @@
+<%= simple_form_for(@car) do |f| %>
+
+  <%= f.association :company %>
+  <%= f.input :brand %>
+  <%= f.input :description %>
+  <%= f.input :image %>
+  <%= f.input :image_cache, as: :hidden %>
+  <%= f.input :luggage_capacity %>
+  <%= f.input :price_per_hour %>
+  <%= f.input :price_per_km %>
+  <%= f.input :luggage_capacity %>
+
+  <%= f.button :submit, "Add your car", class: "btn btn-primary" %>
+
+<% end %>

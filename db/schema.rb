@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_02_26_154200) do
 
   # These are extensions that must be enabled in order to support this database
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_154200) do
     t.bigint "user_id"
     t.bigint "beneficiary_id"
     t.datetime "pick_up_date"
+    t.float "final_price"
     t.string "status"
     t.string "flight_number"
     t.integer "number_of_passengers"

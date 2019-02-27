@@ -1,12 +1,24 @@
-<h1>Cars</h1>
-<ul>
-<% @cars.each do |car| %>
-<li><%= car.brand %>
-<%= form_tag new_service_path, method: :get do %>
-<%= hidden_field_tag :car_id, params[:car_id] = car.id %>
-<%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-<% end %>
-</li>
-<% end %>
-</ul>
+<div class="container">
 
+<h1>Choose a car</h1>
+<div class="cars">
+  <% @cars.each do |car| %>
+  <div class="car">
+    <div class="info">
+      <h2><%= car.brand %></h2>
+      <p><%= car.description %>
+      </div>
+      <div class="pic">
+        <%= cl_image_tag(car.image,
+        width: 400, height: 250, crop: :fill) %>
+      </div>
+      <div class="action">
+        <%= form_tag new_service_path, method: :get do %>
+        <%= hidden_field_tag :car_id, params[:car_id] = car.id %>
+        <%= submit_tag 'Select', class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

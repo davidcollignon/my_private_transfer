@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_26_154200) do
+ActiveRecord::Schema.define(version: 2019_02_27_103058) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,27 +51,25 @@ ActiveRecord::Schema.define(version: 2019_02_26_154200) do
   create_table "services", force: :cascade do |t|
     t.bigint "car_id"
     t.bigint "user_id"
-    t.bigint "beneficiary_id"
     t.datetime "pick_up_date"
+    t.integer "final_price_cents", default: 0, null: false
     t.string "status"
+    t.jsonb "payment"
     t.string "flight_number"
+    t.string "driver_language"
     t.integer "number_of_passengers"
     t.integer "number_normal_luggage"
     t.integer "number_odd_luggage"
     t.text "description_odd_luggage"
     t.integer "number_hand_luggage"
     t.string "additional_info"
-    t.float "commission_rate"
+    t.float "commission_rate", default: 0.0
     t.string "service_type"
     t.string "pick_up_address"
     t.string "destination_address"
     t.float "number_hours_at_disposal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "driver_language"
-    t.integer "final_price_cents", default: 0, null: false
-    t.jsonb "payment"
-    t.index ["beneficiary_id"], name: "index_services_on_beneficiary_id"
     t.index ["car_id"], name: "index_services_on_car_id"
     t.index ["user_id"], name: "index_services_on_user_id"
   end
@@ -83,19 +82,15 @@ ActiveRecord::Schema.define(version: 2019_02_26_154200) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "beneficiary_id"
     t.string "first_name"
     t.string "last_name"
     t.string "agency"
     t.string "agency_address"
-    t.index ["beneficiary_id"], name: "index_users_on_beneficiary_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "cars", "companies"
-  add_foreign_key "services", "beneficiaries"
   add_foreign_key "services", "cars"
   add_foreign_key "services", "users"
-  add_foreign_key "users", "beneficiaries"
 end

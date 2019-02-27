@@ -2,8 +2,8 @@
 <ul>
 <% @cars.each do |car| %>
 <li><%= car.brand %>
-<%= form_tag services_path do %>
-<%= hidden_field_tag 'car_id', @car.id %>
+<%= form_tag new_service_path, method: :get do %>
+<%= hidden_field_tag :car_id, params[:car_id] = car.id %>
 <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
 <% end %>
 </li>

@@ -11,12 +11,12 @@ class ServicesController < ApplicationController
   end
 
   def new
-    @car = Car.find(params["car_id"])
+    @car = Car.find(params[:car_id])
     @service = Service.new
   end
 
   def create
-    @car = Car.find(params[:service][:car_id])
+    @car = Car.find(params[:service][:car])
     @service = Service.create!(car: @car, final_price: @car.price_per_hour_cents, status: 'pending', user: current_user)
     redirect_to new_service_payment_path(@service)
   end

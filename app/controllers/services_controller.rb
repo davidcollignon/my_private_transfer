@@ -13,13 +13,14 @@ class ServicesController < ApplicationController
   def new
     @car = Car.find(params["car_id"])
     @service = Service.new
+
   end
 
   def create
     @car = Car.find(params[:service][:car])
     @hours = params[:service][:number_hours_at_disposal]
     @commission_rate = params[:service][:commission_rate]
-    @amount = @car.price_per_hour_cents * @hours.to_i * (1 + @commission_rate.to_f)
+    @amount = @car.price_per_hour_cents * @hours.to_i * (1 + (@commission_rate.to_f) / 100)
     @service = Service.new(service_params)
     @service.car = @car
     @service.final_price = @amount
@@ -38,10 +39,9 @@ class ServicesController < ApplicationController
   def update
     @service = Service.find(params[:id])
     @car = @service.car
-   #@car = Car.find(params[:service][:car])
     @hours = params[:service][:number_hours_at_disposal]
     @commission_rate = params[:service][:commission_rate]
-    @amount = @car.price_per_hour_cents * @hours.to_i * (1 + @commission_rate.to_f)
+    @amount = @car.price_per_hour_cents * @hours.to_i * (1 + (@commission_rate.to_f) / 100)
     @service = Service.find(params[:id])
     @service.car = @car
     @service.final_price = @amount

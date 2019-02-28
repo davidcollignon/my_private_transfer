@@ -1,14 +1,14 @@
-<%= simple_form_for (@service) do |f| %>
 
+<%= simple_form_for (@service) do |f| %>
   <%= f.input :flight_number, label: "Flight Number" %>
   <%= f.input :driver_language, label: "Driver's Language"%>
-  <%= f.input :number_of_passengers, label: "Number of passengers" %>
-  <%= f.input :number_normal_luggage, label: "Luggage" %>
-  <%= f.input :number_hand_luggage, label: "Hand Luggage" %>
-  <%= f.input :number_odd_luggage, label: "Odd Luggage" %>
+  <%= f.input :number_of_passengers, collection: 1..10, label: "Number of passengers" %>
+  <%= f.input :number_normal_luggage, collection: 1..10, label: "Luggage" %>
+  <%= f.input :number_hand_luggage, collection: 1..10, label: "Hand Luggage" %>
+  <%= f.input :number_odd_luggage, collection: 1..10, label: "Odd Luggage" %>
   <%= f.input :description_odd_luggage, label: "Description of odd luggage"%>
   <%= f.input :additional_info, label: "Addtional Information"%>
   <%= f.input :commission_rate, label: "Commission" %>
-  <%= f.input :car_id, value: params[:car_id] %>
+  <%= f.input :car, as: :hidden, input_html: { value: params[:car_id]} %>
   <%= f.submit "Continue", class: "btn btn-primary" %>
  <% end =%>

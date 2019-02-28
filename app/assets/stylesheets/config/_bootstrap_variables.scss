@@ -6,8 +6,13 @@
 // General style
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
-$body-bg:                 $light-gray;
-$font-size-base: 18px;
+$body-bg:                 $mpt-white;
+$font-size-base: 14px;
+$font-color:$mpt-dark;
+
+// Form
+$btn-primary-bg: $mpt-sand;
+$input-border-focus: $mpt-sand;
 
 // Colors
 $gray-base:       $gray;

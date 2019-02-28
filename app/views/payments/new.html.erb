@@ -1,8 +1,16 @@
 <h1>Purchase of service <%= @service.car_id%></h1>
+
+<h2><%= @service.flight_number %></h2>
+<%= link_to "Delete", service_path(@service),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+<%= link_to "Edit", edit_service_path(@service), method: :get %>
+
+
 <%= form_tag service_payments_path(@service) do %>
   <article>
     <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@service.final_price) %></span>
+      <span>Amount: <%= humanized_money_with_symbol(@service.final_price/100) %></span>
     </label>
   </article>
 

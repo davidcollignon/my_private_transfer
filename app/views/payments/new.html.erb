@@ -19,6 +19,6 @@
     data-name="Service"
     data-email="<%= current_user.email %>"
     data-description="Service <%= @service.car_id %>"
-    data-amount="<%= @service.final_price_cents %>"
+    data-amount="<%= @service.final_price_cents / 100 %>"
     data-currency="<%= @service.final_price.currency %>"></script>
 <% end %>

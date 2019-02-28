@@ -1,4 +1,5 @@
 class Car < ApplicationRecord
+  has_many :services
   belongs_to :company
 
   mount_uploader :image, PhotoUploader

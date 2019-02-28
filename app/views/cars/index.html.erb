@@ -7,16 +7,15 @@
     <div class="info">
       <h2><%= car.brand %></h2>
       <p><%= car.description %>
-      </div>
-      <div class="pic">
-        <%= cl_image_tag(car.image,
-        width: 400, height: 250, crop: :fill) %>
-      </div>
-      <div class="action">
+
         <%= form_tag new_service_path, method: :get do %>
         <%= hidden_field_tag :car_id, params[:car_id] = car.id %>
         <%= submit_tag 'Select', class: 'btn btn-primary' %>
         <% end %>
+      </div>
+      <div class="pic">
+        <%= cl_image_tag(car.image,
+        width: 400, height: 250, crop: :fill) %>
       </div>
     </div>
     <% end %>

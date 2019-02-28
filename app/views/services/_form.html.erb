@@ -1,17 +1,51 @@
 
 <%= simple_form_for (@service) do |f| %>
+
+
+<div class="row ">
+<div class="col-xs-12 col-sm-6">
   <%= f.input :flight_number, label: "Flight Number" %>
+</div>
+<div class="col-xs-12 col-sm-6">
   <%= f.input :driver_language, label: "Driver's Language"%>
 
+
   <%= f.input :number_hours_at_disposal, label: "How many hours you want to book the service?"%>
+
+</div>
+</div>
+
+<h2>Travel information</h2>
+<div class="row ">
+
+
+  <div class="col-xs-12 col-sm-6">
+
   <%= f.input :number_of_passengers, collection: 1..10, label: "Number of passengers" %>
+</div>
+<div class="col-xs-12 col-sm-6">
   <%= f.input :number_normal_luggage, collection: 1..10, label: "Luggage" %>
+</div>
+<div class="col-xs-12 col-sm-6">
   <%= f.input :number_hand_luggage, collection: 1..10, label: "Hand Luggage" %>
+</div>
+<div class="col-xs-12 col-sm-6">
   <%= f.input :number_odd_luggage, collection: 1..10, label: "Odd Luggage" %>
 
+
+</div>
+<div class="col-xs-12 col-sm-12">
+
   <%= f.input :description_odd_luggage, label: "Description of odd luggage"%>
+</div>
+<div class="col-xs-12 col-sm-12">
   <%= f.input :additional_info, label: "Addtional Information"%>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12 col-sm-6">
   <%= f.input :commission_rate, label: "Commission" %>
+</div></div>
   <%= f.input :car, as: :hidden, input_html: { value: params[:car_id]} %>
   <%= f.submit "Continue", class: "btn btn-primary" %>
  <% end %>

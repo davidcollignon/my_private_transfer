@@ -5,8 +5,9 @@
 .car {
 display: flex;
 margin: 0 0 20px 0;
-padding: 10px; }
+padding: 10px 0;
+justify-content: space-between; }
 
-.cars .info { flex-basis: 40%;
+.cars .info {
 
 }

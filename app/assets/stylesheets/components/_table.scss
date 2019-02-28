@@ -1,0 +1,9 @@
+.grid {
+    display: grid;
+}
+
+.grid > span {
+    padding: 8px 4px;
+    border-bottom: 1px solid $light-gray;
+}
+

@@ -4,8 +4,7 @@
 <%= link_to "Delete", service_path(@service),
       method: :delete,
       data: { confirm: "Are you sure?" } %>
-<%= link_to "Edit", service_path(@service),
-      method: :patch %>
+<%= link_to "Edit", edit_service_path(@service), method: :get %>
 
 
 <%= form_tag service_payments_path(@service) do %>

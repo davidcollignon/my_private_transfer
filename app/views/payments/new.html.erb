@@ -1,13 +1,47 @@
-<h1>Purchase of service <%= @service.car_id%></h1>
+<div class="row">
+  <div class="col-xs-12 col-xs-offset-3">
+  <h1>Reservation Confirmation for :<%= @service.car_id%></h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-xs-offset-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Reservation details</h5>
+        <ul>
+          <li>Pick-up date: <%=@service.pick_up_date %></li>
+          <li>Pick-up address: <%=@service.pick_up_address %></li>
+          <li>Destination address: <%=@service.destination_address %></li>
+          <li>Flight number: <%=@service.flight_number %></li>
+          <li>Number of passengers: <%=@service.number_of_passengers %></li>
+          <li>Driver language: <%=@service.driver_language %></li>
 
-<h2><%= @service.flight_number %></h2>
-<%= link_to "Delete", service_path(@service),
+          <li>Number of odd luggage: <%=@service.number_odd_luggage %></li>
+          <li>Number of normal luggage: <%=@service.number_normal_luggage %></li>
+          <li>Number of hand luggage: <%=@service.number_hand_luggage %></li>
+          <li>Number of hours at disposal: <%=@service.number_hours_at_disposal %></li>
+          </li>
+        </ul>
+        <p class="card-text"></p>
+        <%= link_to "Edit", edit_service_path(@service), method: :get, class: "btn btn-primary"  %>
+        <%= link_to "Delete", service_path(@service),
       method: :delete,
-      data: { confirm: "Are you sure?" } %>
-<%= link_to "Edit", edit_service_path(@service), method: :get %>
-
-
-<%= form_tag service_payments_path(@service) do %>
+      data: { confirm: "Are you sure?" },
+      class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-xs-offset-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Price details</h5>
+        <p class="card-text">
+          <ul>
+            <li>Reseravation status: <%=@service.status %></li>
+            <li>Your commission rate: <%=@service.commission_rate %></li>
+          </ul>
+        </p>
+        <%= form_tag service_payments_path(@service) do %>
   <article>
     <label class="amount">
       <span>Amount: <%= humanized_money_with_symbol(@service.final_price/100) %></span>
@@ -22,3 +56,8 @@
     data-amount="<%= @service.final_price_cents %>"
     data-currency="<%= @service.final_price.currency %>"></script>
 <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

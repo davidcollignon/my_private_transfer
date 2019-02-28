@@ -6,11 +6,33 @@
 <!--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
  -->
 
+  <p><strong>Delivered services and secured commissions:</strong></p>
+
     <% @months_hash.each do |index, month| %>
       <% if index <= DateTime.now.month %>
         <div class="row">
-          <p><%= month %> <%= @monthly_revenue[index -1] %></p>
+          <p><%= month %> | EUR <%= @monthly_revenue[index -1] %> | EUR <%= @monthly_comm[index -1] %> |
+            <% if @monthly_comm[index -1] == 0 %>
+            -
+            <% else %>
+            Commission to be paid on: <%= @months_hash[index +1] %>, 1st <%= DateTime.now.year %>
+            <% end %>
+            </p>
         </div>
       <% end %>
     <% end %>
+
+  <p><strong>Confirmed services and future commissions:</strong></p>
+
+  <% @months_hash.each do |index, month| %>
+      <% if index <= DateTime.now.month %>
+        <div class="row">
+          <p><%= month %> | EUR <%= @monthly_potential_revenue[index -1] %> | EUR <%= @monthly_comm[index -1] %> | Commission to be paid on: <%= @months_hash[index +1] %>, 1st <%= DateTime.now.year %></p>
+        </div>
+      <% end %>
+    <% end %>
+
+
+    <p><strong>NB:</strong> Commentaire de devéloppement: <em>Le tri se fait en fonction du statut "Done" ou pas (string), sensible à la casse</em></p>
+
 </div>

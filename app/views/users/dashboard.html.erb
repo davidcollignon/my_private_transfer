@@ -1,9 +1,20 @@
-<h1><%= current_user.last_name  %></h1>
+<div class="container">
 
-<ul>
-<% @services.each do |service| %>
-<li><%= service.pick_up_date %> <%= service.status  %>
-  <%= service.beneficiaries.last_name %>
-</li>
-<% end %>
-</ul>
+  <h2>Agent dashboard</h2>
+
+    <p><strong>All services</strong> - <%= link_to "Revenues", dashboard_revenues_path %></p>
+
+    <% if current_user.services == [] %>
+      <h4>You do not have any services to display yet</h4>
+    <% else %>
+      <ul>
+        <% @services.each do |service| %>
+        <li>
+          Transfer | <%= service.pick_up_date.strftime("%B %d, %Y") %> |  Add Benef name in service form| EUR <%= service.final_price_cents.round / 100 %> | <%= (service.commission_rate * 100).round %>% | <span class="badge"><%= service.status %></span>
+        </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+</div>
+

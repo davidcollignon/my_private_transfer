@@ -22,10 +22,6 @@ class UsersController < ApplicationController
                      11 => "November",
                      12 => "December"}
 
-    # @total_sales = @services.reduce(0) { |sum, service|
-    #   sum + service.final_price_cents
-    # }
-    #
     index = 1
     @monthly_revenue = []
     @monthly_comm = []
@@ -43,8 +39,6 @@ class UsersController < ApplicationController
     @monthly_comm
     @monthly_potential_revenue
     @monthly_potential_comm
-
-
 
   end
 

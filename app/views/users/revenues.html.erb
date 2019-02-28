@@ -1,7 +1,45 @@
-<h1>Revenues</h1>
+<div class="container">
+  <h2>Agent dashboard</h2>
 
-<ul>
-<% @services.each do |service| %>
-  <li><%= service.final_price  %></li>
-<% end %>
-</ul>
+  <p><%= link_to "All services", dashboard_path %> - <strong>My revenues</strong></p>
+
+<!--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+ -->
+
+  <p><strong>Delivered services and secured commissions:</strong></p>
+
+    <% @months_hash.each do |index, month| %>
+      <% if index <= DateTime.now.month %>
+        <div class="row">
+          <p><%= month %> | EUR <%= @monthly_revenue[index -1] %> | EUR <%= @monthly_comm[index -1] %> |
+            <% if @monthly_comm[index -1] == 0 %>
+            -
+            <% else %>
+            Commission to be paid on: <%= @months_hash[index +1] %>, 1st <%= DateTime.now.year %>
+            <% end %>
+            </p>
+        </div>
+      <% end %>
+    <% end %>
+
+  <p><strong>Confirmed services and future commissions:</strong></p>
+
+  <% @months_hash.each do |index, month| %>
+      <% if index <= DateTime.now.month %>
+        <div class="row">
+          <p><%= month %> | EUR <%= @monthly_potential_revenue[index -1] %> | EUR <%= @monthly_potential_comm[index -1] %> |
+            <% if @monthly_potential_comm[index -1] == 0 %>
+            -
+            <% else %>
+            Commission to be paid on: <%= @months_hash[index +1] %>, 1st <%= DateTime.now.year %>
+            <% end %>
+            </p>
+          </p>
+        </div>
+      <% end %>
+    <% end %>
+
+
+    <p><strong>NB:</strong> Commentaire de devéloppement: <em>Le tri se fait en fonction du statut "Done" ou pas (string), sensible à la casse</em></p>
+
+</div>

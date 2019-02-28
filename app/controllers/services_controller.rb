@@ -7,7 +7,8 @@ class ServicesController < ApplicationController
   end
 
   def show
-    @service = Service.find(params[:id])
+    #@service = Service.find(params[:id])
+    @service = current_user.services.where(status: 'paid').find(params[:id])
   end
 
   def new

@@ -60,3 +60,17 @@ flex-direction: column;
   background-color: rgba(0,0,0,0.2);
 }
 
+.index h1 {
+  font-size:1.6em;
+  margin:0;
+  text-transform: uppercase;
+}
+
+.top {
+  margin: 1em 0;
+display: flex;
+justify-content: space-between;
+align-items: center;
+color: $mpt-sand;
+}
+

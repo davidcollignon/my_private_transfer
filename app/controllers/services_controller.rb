@@ -12,7 +12,7 @@ class ServicesController < ApplicationController
   end
 
   def new
-    @car = Car.find(params["car_id"])
+    @car = Car.find(params[:car_id])
     @service = Service.new
   end
 

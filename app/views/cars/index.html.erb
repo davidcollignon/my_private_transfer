@@ -1,22 +1,26 @@
+
 <div class="container">
 
+ <div class="top">
 <h1>Choose a car</h1>
+<div class="filter">
+  <p>Filter <i class="fas fa-filter"></i>
+</div>
+</div>
 <div class="cars">
   <% @cars.each do |car| %>
+
   <div class="car">
+    <div class="pic">
+        <%= image_tag "mercedes.jpg" %>
+      </div>
     <div class="info">
       <h2><%= car.brand %></h2>
-      <p><%= car.description %>
+      <p><%= car.description %></p>
+      <p class="desc"><i class="fas fa-users"></i> max. <%= car.passenger_capacity %> | <i class="fas fa-suitcase"></i> max. <%= car.luggage_capacity %>
 
-        <%= form_tag new_service_path, method: :get do %>
-        <%= hidden_field_tag :car_id, params[:car_id] = car.id %>
-        <%= submit_tag 'Select', class: 'btn btn-primary' %>
-        <% end %>
       </div>
-      <div class="pic">
-        <%= cl_image_tag(car.image,
-        width: 400, height: 250, crop: :fill) %>
-      </div>
+<%= link_to "", new_service_path(car_id: car) %>
     </div>
     <% end %>
   </div>

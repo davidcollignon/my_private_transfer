@@ -6,6 +6,19 @@ class PaymentsController < ApplicationController
   end
 
   def create
+    customer = Stripe::Customer.create(
+    source: params[:stripeToken],
+    email:  params[:stripeEmail]
+  )
+
+  charge = Stripe::Charge.create(
+    customer:     customer.id, # You should store this customer id and re-use it.
+    amount:       @service.final_price_cents,
+    description:  "Payment for your service confirmed",
+    currency:     @service.final_price.currency
+  )
+
+  @service.update(payment: charge.to_json, status: 'paid')
     redirect_to service_path(@service)
   end
 

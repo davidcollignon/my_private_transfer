@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'my-private-transfer-staging.herokuapp.com'
+  default from: 'reservation@privatetransfer'
   layout 'mailer'
 end

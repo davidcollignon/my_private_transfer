@@ -1,18 +1,14 @@
-.parent {
-  margin-top: 30px;
-}
-
 .child-menu {
   border-radius: 5px;
   margin: 25px 0px 20px 0px;
 }
 
-.transfer {
+.month {
   background: #efeaea;
   border-radius: 5px;
   padding: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
@@ -20,6 +16,7 @@
   align-items: center;
   margin-bottom: 10px
 }
+
 
 .item-a {
   grid-column-start: 1;
@@ -45,13 +42,4 @@
 .item-e {
   grid-column-start: 5;
   grid-column-end: 5;
-}
-
-.item-f {
-  grid-column-start: 6;
-  grid-column-end: end;
-}
-
-h2 {
-  margin-top: 50px;
 }

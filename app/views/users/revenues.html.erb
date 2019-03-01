@@ -1,45 +1,103 @@
 <div class="container">
   <h2>Agent dashboard</h2>
+  <div class="child-menu">
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation"><a href="../dashboard">All services</a></li>
+      <li role="presentation" class="active"><a href="#">Revenues</a></li>
+    </ul>
+  </div>
+  <h4>Confirmed services and future commissions:</h4>
+  <div class="child-revenues-list">
+    <div class="month">
+      <div class="item-a">
+        <strong>Month</strong>
+      </div>
+      <div class="item-b">
+        <strong>Total sales</strong>
+      </div>
+      <div class="item-c">
+        <strong>Total commissions</strong>
+      </div>
+      <div class="item-d">
+        <strong>Status</strong>
+      </div>
+      <div class="item-e">
+        <strong>Payment date</strong>
+      </div>
+    </div>
 
-  <p><%= link_to "All services", dashboard_path %> - <strong>My revenues</strong></p>
+    <% @months_hash.each do |index, month| %>
+    <% if index <= DateTime.now.month %>
+    <div class="month">
+      <div class="item-a">
+        <%= month %>
+      </div>
+      <div class="item-b">EUR <%= @monthly_revenue[index -1] %></div>
+      <div class="item-c">
+        EUR <%= @monthly_comm[index -1] %>
+      </div>
+      <div class="item-d">
+        <% if index < DateTime.now.month %>
+          <% if @monthly_comm[index -1] == 0 %>
+          -
+          <% else %>
+          Paid
+          <% end %>
+        <% else %>
+          <% if @monthly_comm[index -1] == 0 %>
+          -
+          <% else %>
+          Pending
+          <% end %>
+        <% end %>
+      </div>
+      <div class="item-e">
+        <% if @monthly_comm[index -1] == 0 %>
+        -
+        <% else %>
+        <%= @months_hash[index +1] %>, 1st <%= DateTime.now.year %>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
 
-<!--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
- -->
+  <h4>Delivered services and secured commissions:</h4>
 
-  <p><strong>Delivered services and secured commissions:</strong></p>
 
     <% @months_hash.each do |index, month| %>
       <% if index <= DateTime.now.month %>
-        <div class="row">
-          <p><%= month %> | EUR <%= @monthly_revenue[index -1] %> | EUR <%= @monthly_comm[index -1] %> |
-            <% if @monthly_comm[index -1] == 0 %>
-            -
+        <div class="month">
+          <div class="item-a"><%= month %></div>
+          <div class="item-b">EUR <%= @monthly_potential_revenue[index -1] %></div>
+          <div class="item-c">EUR <%= @monthly_potential_comm[index -1] %></div>
+          <div class="item-d">
+            <% if index < DateTime.now.month %>
+              <% if @monthly_comm[index -1] == 0 %>
+                -
+              <% else %>
+                Paid
+              <% end %>
             <% else %>
-            Commission to be paid on: <%= @months_hash[index +1] %>, 1st <%= DateTime.now.year %>
+              <% if @monthly_comm[index -1] == 0 %>
+                -
+              <% else %>
+                Pending
+              <% end %>
             <% end %>
-            </p>
-        </div>
-      <% end %>
-    <% end %>
-
-  <p><strong>Confirmed services and future commissions:</strong></p>
-
-  <% @months_hash.each do |index, month| %>
-      <% if index <= DateTime.now.month %>
-        <div class="row">
-          <p><%= month %> | EUR <%= @monthly_potential_revenue[index -1] %> | EUR <%= @monthly_potential_comm[index -1] %> |
+          </div>
+          <div class="item-e">
             <% if @monthly_potential_comm[index -1] == 0 %>
             -
             <% else %>
             Commission to be paid on: <%= @months_hash[index +1] %>, 1st <%= DateTime.now.year %>
             <% end %>
-            </p>
-          </p>
+          </div>
         </div>
-      <% end %>
     <% end %>
+  <% end %>
 
 
-    <p><strong>NB:</strong> Commentaire de devéloppement: <em>Le tri se fait en fonction du statut "Done" ou pas (string), sensible à la casse</em></p>
-
-</div>
+  <p><strong>NB:</strong> Commentaire de devéloppement: <em>Le tri se fait en fonction du statut "Done" ou pas (string), sensible à la casse</em></p>
+  </div>

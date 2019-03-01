@@ -1,20 +1,32 @@
 <div class="container">
 
+
   <h2>Agent dashboard</h2>
 
-    <p><strong>All services</strong> - <%= link_to "Revenues", dashboard_revenues_path %></p>
+  <div class="parent">
 
-    <% if current_user.services == [] %>
-      <h4>You do not have any services to display yet</h4>
-    <% else %>
-      <ul>
-        <% @services.each do |service| %>
-        <li>
-          Transfer | <%= service.pick_up_date.strftime("%B %d, %Y") %> |  Add Benef name in service form| EUR <%= service.final_price.round / 100%> | <%= (service.commission_rate).round %>% | <span class="badge"><%= service.status %></span>
-        </li>
+      <div class="child-menu">
+        <ul class="nav nav-pills" role="tablist">
+          <li role="presentation" class="active"><a href="#">All services</a></li>
+          <li role="presentation"><a href="dashboard/revenues">Revenues</a></li>
+        </ul>
+      </div>
+
+      <div class="child-transfer-list">
+        <% if current_user.services == [] %>
+          <h4>You do not have any services to display yet</h4>
+        <% else %>
+          <ul>
+            <% @services.each do |service| %>
+            <li>
+              Transfer | <%= service.pick_up_date.strftime("%B %d, %Y") %> |  Add Benef name in service form| EUR <%= service.final_price.round / 100%> | <%= (service.commission_rate).round %>% | <span class="badge"><%= service.status %></span>
+            </li>
+            <% end %>
+          </ul>
         <% end %>
-      </ul>
-    <% end %>
+      </div>
+
+    </div>
 
 </div>
 

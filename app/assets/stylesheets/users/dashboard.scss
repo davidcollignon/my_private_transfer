@@ -1,3 +1,18 @@
-.container {
-  display: flex; /* or inline-flex */
+.parent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 30px;
+}
+
+.child-menu {
+  background: #dadada;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+
+h2 {
+  margin-top: 50px;
 }

@@ -1,9 +1,36 @@
-<h1>Services#show</h1>
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-3">
+  <h1>Reservation confirmation corresponding to the flight <%= @service.flight_number%></h1>
+  </div>
+</div>
 
 
-<h1>Reservation Confirmation</h1>
-<h2><%= @service.flight_number %></h2>
+<div class="card">
+    <p class="card-img"></p>
+    <%= image_tag "mercedes.jpg", alt: "Mercedes noire" %>
 
-<p><%= link_to "Continue", dashboard_path %> </p>
 
 
+  <div class="card-name">
+   <h2 class="card-title"><strong>Amount: <%= humanized_money_with_symbol(@service.final_price/100) %></strong></h2>
+
+    <div class="card-body">
+      <ul>
+        <li>All prices include VAT, fees, Tip</li>
+        <li>Your commission rate on the service: <%=@service.commission_rate%> %</li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <div class="card-buttons">
+          <p><%= link_to "Go to Dashboard", dashboard_path, class: "btn btn-primary" %></p>
+          <p><%= link_to "Export Invoice", service_path(@service),
+            method: :delete,
+            data: { confirm: "Are you sure?" },
+            class: "btn btn-primary" %></p>
+        </div>
+      </div>
+    </div>
+
+</div>s
+</div>

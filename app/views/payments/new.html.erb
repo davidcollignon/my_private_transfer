@@ -1,37 +1,57 @@
 <div class="row">
-  <div class="col-xs-12 col-xs-offset-3">
-  <h1>Reservation Confirmation for :<%= @service.car_id%></h1>
+  <div class="col-xs-6 col-xs-offset-3">
+  <h1>Please review your service for car #<%= @service.car_id%></h1>
   </div>
 </div>
-<div class="row">
-  <div class="col-xs-12 col-xs-offset-3">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Reservation details</h5>
-        <ul>
-          <li>Pick-up date: <%=@service.pick_up_date %></li>
-          <li>Pick-up address: <%=@service.pick_up_address %></li>
-          <li>Destination address: <%=@service.destination_address %></li>
-          <li>Flight number: <%=@service.flight_number %></li>
-          <li>Number of passengers: <%=@service.number_of_passengers %></li>
-          <li>Driver language: <%=@service.driver_language %></li>
 
-          <li>Number of odd luggage: <%=@service.number_odd_luggage %></li>
-          <li>Number of normal luggage: <%=@service.number_normal_luggage %></li>
-          <li>Number of hand luggage: <%=@service.number_hand_luggage %></li>
-          <li>Number of hours at disposal: <%=@service.number_hours_at_disposal %></li>
-          </li>
-        </ul>
-        <p class="card-text"></p>
-        <%= link_to "Edit", edit_service_path(@service), method: :get, class: "btn btn-primary"  %>
-        <%= link_to "Delete", service_path(@service),
-      method: :delete,
-      data: { confirm: "Are you sure?" },
-      class: "btn btn-primary" %>
+
+<div class="card">
+    <p class="card-img"></p>
+    <%= image_tag "mercedes.jpg", alt: "Mercedes noire" %>
+
+
+
+  <div class="card-name">
+   <h5 class="card-title"><strong>Transfer details</strong></h5>
+
+    <div class="card-body">
+      <ul>
+        <li>Pick-up date: <%=@service.pick_up_date %></li>
+        <li>Pick-up address: <%=@service.pick_up_address %></li>
+        <li>Flight number: <%=@service.flight_number %></li>
+        <li>Number of passengers: <%=@service.number_of_passengers %></li>
+        <li>Number of hours at disposal: <%=@service.number_hours_at_disposal %></li>
+        <li>Driver language: <%=@service.driver_language %></li>
+
+        <li>Luggage:</li>
+          <ul>
+            <li>Number of odd luggage: <%=@service.number_odd_luggage %></li>
+            <li>Number of normal luggage: <%=@service.number_normal_luggage %></li>
+            <li>Number of hand luggage: <%=@service.number_hand_luggage %></li>
+          </ul>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <div class="card-buttons">
+          <p><%= link_to "Edit", edit_service_path(@service), method: :get, class: "btn btn-primary"  %></p>
+          <p><%= link_to "Delete", service_path(@service),
+            method: :delete,
+            data: { confirm: "Are you sure?" },
+            class: "btn btn-primary" %></p>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-xs-12 col-xs-offset-3">
+
+</div>
+</div>
+
+
+
+<div class="row">
+
+
+  <div class="col-xs-6 col-xs-offset-3">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Price details</h5>
@@ -41,6 +61,10 @@
             <li>Your commission rate: <%=@service.commission_rate %></li>
           </ul>
         </p>
+        </div>
+    </div>
+  </div>
+    <div class="col-xs-6 col-xs-offset-3">
         <%= form_tag service_payments_path(@service) do %>
   <article>
     <label class="amount">
@@ -55,9 +79,8 @@
     data-description="Service <%= @service.car_id %>"
     data-amount="<%= @service.final_price_cents / 100 %>"
     data-currency="<%= @service.final_price.currency %>"></script>
-<% end %>
-      </div>
+    <% end %>
     </div>
-  </div>
-</div>
+ </div>
+
 

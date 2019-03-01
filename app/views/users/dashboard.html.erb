@@ -6,23 +6,48 @@
   <div class="parent">
 
       <div class="child-menu">
-        <ul class="nav nav-pills" role="tablist">
+        <ul class="nav nav-pills nav-stacked" role="tablist">
           <li role="presentation" class="active"><a href="#">All services</a></li>
           <li role="presentation"><a href="dashboard/revenues">Revenues</a></li>
         </ul>
       </div>
 
       <div class="child-transfer-list">
+        <div class="transfer">
+          <div class="item-a">
+            <strong>Service Type</strong>
+          </div>
+          <div class="item-b">
+            <strong>Service Date</strong>
+          </div>
+          <div class="item-c">
+            <strong>Client</strong>
+          </div>
+          <div class="item-d">
+            <strong>Final price</strong>
+          </div>
+          <div class="item-e">
+            <strong>Your commission</strong>
+          </div>
+          <div class="item-f">
+            <strong>Service status</strong>
+          </div>
+        </div>
+
+
         <% if current_user.services == [] %>
           <h4>You do not have any services to display yet</h4>
         <% else %>
-          <ul>
-            <% @services.each do |service| %>
-            <li>
-              Transfer | <%= service.pick_up_date.strftime("%B %d, %Y") %> |  Add Benef name in service form| EUR <%= service.final_price.round / 100%> | <%= (service.commission_rate).round %>% | <span class="badge"><%= service.status %></span>
-            </li>
-            <% end %>
-          </ul>
+          <% @services.each do |service| %>
+            <div class="transfer">
+              <div class="item-a">Transfer</div>
+              <div class="item-b"><%= service.pick_up_date.strftime("%B %d, %Y") %></div>
+              <div class="item-c">Add Benef name in service form</div>
+              <div class="item-d">EUR <%= service.final_price.round / 100%></div>
+              <div class="item-e"><%= (service.commission_rate).round %>%</div>
+              <div class="item-f"><span class="badge"><%= service.status %></span></div>
+            </div>
+          <% end %>
         <% end %>
       </div>
 

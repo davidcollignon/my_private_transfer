@@ -6,7 +6,8 @@
       <li role="presentation" class="active"><a href="#">Revenues</a></li>
     </ul>
   </div>
-  <h4>Confirmed services and future commissions:</h4>
+  <h4>Delivered services and secured commissions:</h4>
+
   <div class="child-revenues-list">
     <div class="month">
       <div class="item-a">
@@ -63,8 +64,8 @@
     <% end %>
   </div>
 
-  <h4>Delivered services and secured commissions:</h4>
 
+    <h4>Confirmed services and future commissions:</h4>
 
     <% @months_hash.each do |index, month| %>
       <% if index <= DateTime.now.month %>

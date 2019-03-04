@@ -1,18 +1,32 @@
-<p>Dear <% if @service.title == 0 %>
+<p style="color: #444444; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 20px;">Dear <% if @service.title == 0 %>
   Mrs.
   <% else %>
   Mr.
  <%end%>
 <%= @service.last_name%>, </p>
 
- <p> Hereby, we confirm your transfert
-  <ul>
-  <li> from <%=@service.pick_up_address %>,</li>
-  <li> on <%=@service.pick_up_date.strftime("%A, %m/%d/%Y")%>,</li>
-  <li> at <%=@service.pick_up_date.strftime("%Ih%M %P")%>,</li>
-  <li> for <%=@service.number_hours_at_disposal.round %>h.</li>
-  </ul>
+<p style="color: #444444; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 20px;">Hereby, we confirm your transfer.</p>
+
+<table style="width:500px; border:0; padding:0; color: #444444; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 20px;”">
+
+<tr>
+    <td width="200px;" style="padding:5px 0;">From :</td>
+    <td style="padding:5px 0;"><%=@service.pick_up_address %></td>
+</tr>
+<tr>
+  <td style="padding:5px 0;">On :</td>
+  <td style="padding:5px 0;"><%=@service.pick_up_date.strftime("%A, %d %b %Y")%></td>
+</tr>
+<tr>
+  <td style="padding:5px 0;">At :</td><td style="padding:5px 0;"><%=@service.pick_up_date.strftime("%Ih%M %P")%></td>
+</tr>
+<tr>
+  <td style="padding:5px 0;">Duration :</td>
+  <td style="padding:5px 0;"><%=pluralize @service.number_hours_at_disposal.round, "hour" %></td>
+</tr>
+</table>
+<p style="color: #444444; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 20px;">
   Your car will be a <%=@service.car.brand %> and your driver speaks <%=@service.driver_language%>. We wish you a pleasant journey.</p>
 
-<p>Sincerly,</p>
-<p>Your <%= @service.user.agency %> </p>
+<p style="color: #444444; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 20px;”">Sincerly,<br />
+Yours <%= @service.user.agency %> </p>

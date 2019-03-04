@@ -28,7 +28,7 @@ class ServicesController < ApplicationController
     @service.status = "pending"
     @service.user = current_user
     @service.pick_up_address = session[:param_home]["departure"]
-    @service.pick_up_date = DateTime.now
+    @service.pick_up_date = session[:param_home]["pick_up_date"]
     @service.save!
     redirect_to new_service_payment_path(@service)
   end

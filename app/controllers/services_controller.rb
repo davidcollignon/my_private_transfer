@@ -74,9 +74,6 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-   # params.require(:service).permit(:flight_number, :number_hours_at_disposal, :number_of_passengers, :number_normal_luggage, :number_hand_luggage, :number_odd_luggage, :description_odd_luggage, :additional_info, :commission_rate, :car, :user, :pick_up_date, :final_price, :status, :payment, :driver_language, :
-    , :pick_up_address, :destination_address)
-  # params.permit(:data)
-  params.require(:service).permit(:final_price, :flight_number, :driver_language, :number_hours_at_disposal, :number_of_passengers, :number_normal_luggage, :number_hand_luggage, :number_odd_luggage, :description_odd_luggage, :additional_info, :commission_rate, :title, :first_name, :last_name, :email, :mobile, :status)
+    params.require(:service).permit(:final_price, :flight_number, :driver_language, :number_hours_at_disposal, :number_of_passengers, :number_normal_luggage, :number_hand_luggage, :number_odd_luggage, :description_odd_luggage, :additional_info, :commission_rate, :title, :first_name, :last_name, :email, :mobile, :status)
   end
 end

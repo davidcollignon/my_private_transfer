@@ -24,18 +24,19 @@ ul.menu-search li {
 ul.menu-search li a {
   color: #FFF;
  }
+
 ul.menu-search li a:hover { text-decoration: none; opacity: 0.5; }
 ul.menu-search li  { opacity: 0.5;   padding:20px;  }
 ul.menu-search li.active  { opacity: 1;  }
 .mw-100 { width: 100%; }
 
-.search form { padding: 20px; }
+.search form { padding: 0 2em 2em 2em; }
 
 .banner {
   background-image:url(image_path('mpt-bg.jpg'));
   background-size:cover;
-  color: white;
-  text-align: center;
+  background-position: center center;
+
   height: 100vh;
   /* height: calc(100vh - 70px);*/
   align-items: center;
@@ -50,13 +51,40 @@ flex-direction: column;
   }
 }
 
+.banner .info { display: flex;
+align-items:center;
+padding:2em; }
+
 .info h1 {
   margin: 0;
-  font-size:2.5em;
+  font-size:3em;
   text-shadow: 1px 2px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: center;
+  font-weight: 100;
 }
 
 .search {
   background-color: rgba(0,0,0,0.2);
+  box-shadow: 1px 2px rgba(0, 0, 0, 0.2);
+
 }
 
+.index h1 {
+  font-size:1.6em;
+  margin:0;
+  text-transform: uppercase;
+}
+
+.top {
+  margin: 1em 0;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.flatpickr-calendar .flatpickr-day.selected { background-color:$mpt-sand;
+  border-color:$mpt-light;  }
+
+
+.input-group-addon { color: #cfcfcf; background-color:#FFF; border:none; }

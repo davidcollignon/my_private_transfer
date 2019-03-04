@@ -3,12 +3,12 @@ class UsersController < ApplicationController
 
   def dashboard
     @services = current_user.services
-    @confirmed_services = @services.where(status: ["confirmed", "Confirmed", "done", "Done"])
+    @confirmed_services = @services.where(status: ["paid", "Paid", "done", "Done"])
   end
 
   def revenues
     @services = current_user.services
-    @confirmed_services = @services.where(status: ["confirmed", "Confirmed", "done", "Done"])
+    @confirmed_services = @services.where(status: ["paid", "Paid", "done", "Done"])
     @delivered_services = @services.where(status: ["done", "Done"])
     @pending_delivery_services = @services.where(status: ["confirmed", "Confirmed"])
 

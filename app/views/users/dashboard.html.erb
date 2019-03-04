@@ -28,8 +28,8 @@
       <div class="item-f">
         <strong>Service status</strong>
       </div>
-    </div>
 
+    </div>
 
     <% if @confirmed_services == [] %>
       <p class="msg-no-service">You do not have any services to display yet</p>
@@ -38,10 +38,23 @@
         <div class="transfer">
           <div class="item-a">Transfer</div>
           <div class="item-b"><%= service.pick_up_date.strftime("%B %d, %Y") %></div>
-          <div class="item-c">Add Benef name in service form</div>
+          <div class="item-c">
+            <% if service.last_name.nil? %>
+              To be confirmed
+            <% else  %>
+              <%= service.last_name %>
+            <% end %>
+            </div>
           <div class="item-d">EUR <%= service.final_price.round / 100%></div>
           <div class="item-e"><%= (service.commission_rate).round %>%</div>
-          <div class="item-f"><span class="badge"><%= service.status %></span></div>
+          <div class="item-f">
+            <% if service.status == "paid" %>
+              <div class="custom-badge-paid"><%= service.status %></div>
+            <% else %>
+              <div class="custom-badge-done"><%= service.status %></div>
+            <% end %>
+          </div>
+          <div class="item-g"><button type="button" class="btn btn-default btn-xs"><%= link_to "Edit", edit_service_path(service) %></button></div>
         </div>
       <% end %>
     <% end %>

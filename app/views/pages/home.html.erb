@@ -11,30 +11,28 @@
     <%= form_tag cars_path, method: :get do %>
 
     <div class="form-group row">
-      <div class="col-xs-6">
+      <div class="col-xs-12">
       <%= text_field_tag :departure, params[:departure], class: "form-control", placeholder: "Departure address" %>
+      </div>
+    </div>
+
+  <div class="form-group row">
+
+<div class="col-xs-6">
+    <%= text_field_tag :pick_up_date,
+    params[:pick_up_date],
+    class: "form-control",
+    placeholder: "Pick up date"
+   %>
+   <span class="input-group-addon"><i class="far fa-calendar-alt"></i></span>
 </div>
 
 <div class="col-xs-6">
       <%= text_field_tag :hours, params[:hours], class: "form-control", placeholder: "Hours at disposal" %>
+         <span class="input-group-addon"><i class="fas fa-hourglass-start"></i></span>
 </div>
-</div>
-  <div class="form-group row">
 
-<div class="col-xs-6">
-    <%= text_field_tag :date,
-    params[:date],
-    class: "form-control",
-    placeholder: "Pick up date"
-  %>
-</div>
-  <div class="col-xs-6">
-  <%= text_field_tag :time,
-  params[:time],
-  class: "form-control",
-  placeholder: "Pick up time"
-  %>
-</div>
+
 </div>
 <%= submit_tag "Search", class: "btn btn-primary mw-100" %>
 <% end %>

@@ -7,12 +7,26 @@
   margin: 25px 0px 20px 0px;
 }
 
+.table-headers {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  justify-items: start;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 0.2rem solid;
+  padding: 0px 20px 5px 20px;
+
+}
+
 .transfer {
   background: #efeaea;
   border-radius: 5px;
   padding: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
@@ -49,9 +63,35 @@
 
 .item-f {
   grid-column-start: 6;
-  grid-column-end: end;
+  grid-column-end: 6;
+}
+
+.item-g {
+  grid-column-start: 7;
+  grid-column-end: 7;
 }
 
 h2 {
   margin-top: 50px;
+}
+
+.msg-no-service {
+  text-align: center;
+  background: #f0ad4e;
+  border-radius: 3px;
+  padding: 4px;
+}
+
+.custom-badge-paid {
+  background: #5bc0de;
+  padding: 1px 10px;
+  color: white;
+  border-radius: 10px;
+}
+
+.custom-badge-done {
+  background: #5cb85c;
+  padding: 1px 10px;
+  color: white;
+  border-radius: 10px;
 }

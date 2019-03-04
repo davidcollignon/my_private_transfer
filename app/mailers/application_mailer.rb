@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'reservation@privatetransfer.com'
+  default from: 'contact@myprivatetransfer.vip'
   layout 'mailer'
 end

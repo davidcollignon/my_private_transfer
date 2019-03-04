@@ -17,6 +17,34 @@
   margin-bottom: 10px
 }
 
+.table-headers-revenues {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  justify-items: start;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  border-bottom: 0.2rem solid;
+  padding: 0px 20px 5px;
+
+}
+
+// .msg-delivered-services {
+//   text-align: center;
+//   background: #5cb85c;
+//   border: dashed thin;
+//   padding: 10px;
+// }
+
+// .msg-confirmed-service {
+//   text-align: center;
+//   background: #5bc0de;
+//   border: dashed thin;
+//   padding: 10px;
+// }
 
 .item-a {
   grid-column-start: 1;

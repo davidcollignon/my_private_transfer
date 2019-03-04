@@ -21,6 +21,20 @@
   margin-bottom: 10px
 }
 
+.table-headers {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  justify-items: start;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: thick double #428bca;
+  padding-bottom: 5px
+
+}
+
 .item-a {
   grid-column-start: 1;
   grid-column-end: 1;
@@ -54,4 +68,11 @@
 
 h2 {
   margin-top: 50px;
+}
+
+.msg-no-service {
+  text-align: center;
+  background: #f0ad4e;
+  border-radius: 3px;
+  padding: 4px;
 }

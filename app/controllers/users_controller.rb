@@ -3,12 +3,15 @@ class UsersController < ApplicationController
 
   def dashboard
     @services = current_user.services
-
+    @confirmed_services = @services.where(status: ["confirmed", "Confirmed", "done", "Done"])
   end
 
   def revenues
-
     @services = current_user.services
+    @confirmed_services = @services.where(status: ["confirmed", "Confirmed", "done", "Done"])
+    @delivered_services = @services.where(status: ["done", "Done"])
+    @pending_delivery_services = @services.where(status: ["confirmed", "Confirmed"])
+
     @months_hash = { 1 => "January",
                      2 => "February",
                      3 => "March",
@@ -44,8 +47,8 @@ class UsersController < ApplicationController
 
   def sum_rev(month)
     @total_sales = 0
-    @services.each do |service|
-      if service.pick_up_date.month == month && service.status == "Done"
+    @confirmed_services.each do |service|
+      if service.pick_up_date.month == month && service.status == ("Done" || "done")
         @total_sales += (service.final_price_cents / 100)
       end
     end
@@ -54,8 +57,8 @@ class UsersController < ApplicationController
 
   def sum_comm(month)
     @total_comm = 0
-    @services.each do |service|
-      if service.pick_up_date.month == month && service.status == "Done"
+    @confirmed_services.each do |service|
+      if service.pick_up_date.month == month && service.status == ("Done" || "done")
         @total_comm += (service.final_price_cents * service.commission_rate / 100)
       end
     end
@@ -64,8 +67,8 @@ class UsersController < ApplicationController
 
   def sum_potential_rev(month)
     @total_sales = 0
-    @services.each do |service|
-      if service.pick_up_date.month == month && service.status != "Done"
+    @confirmed_services.each do |service|
+      if service.pick_up_date.month == month && service.status != ("Done" || "done")
         @total_sales += (service.final_price_cents / 100)
       end
     end
@@ -74,8 +77,8 @@ class UsersController < ApplicationController
 
   def sum_potential_comm(month)
     @total_comm = 0
-    @services.each do |service|
-      if service.pick_up_date.month == month && service.status != "Done"
+    @confirmed_services.each do |service|
+      if service.pick_up_date.month == month && service.status != ("Done" || "done")
         @total_comm += (service.final_price_cents * service.commission_rate / 100)
       end
     end

@@ -6,99 +6,136 @@
       <li role="presentation" class="active"><a href="#">Revenues</a></li>
     </ul>
   </div>
-  <h4>Delivered services and secured commissions:</h4>
 
-  <div class="child-revenues-list">
-    <div class="month">
-      <div class="item-a">
-        <strong>Month</strong>
-      </div>
-      <div class="item-b">
-        <strong>Total sales</strong>
-      </div>
-      <div class="item-c">
-        <strong>Total commissions</strong>
-      </div>
-      <div class="item-d">
-        <strong>Status</strong>
-      </div>
-      <div class="item-e">
-        <strong>Payment date</strong>
-      </div>
-    </div>
 
-    <% @months_hash.each do |index, month| %>
-    <% if index <= DateTime.now.month %>
-    <div class="month">
-      <div class="item-a">
-        <%= month %>
-      </div>
-      <div class="item-b">EUR <%= @monthly_revenue[index -1] %></div>
-      <div class="item-c">
-        EUR <%= @monthly_comm[index -1] %>
-      </div>
-      <div class="item-d">
-        <% if index < DateTime.now.month %>
-          <% if @monthly_comm[index -1] == 0 %>
-          -
+  <div class="row">
+
+    <div class="col-md-6">
+        <p class="msg-delivered-services">Delivered services and secured commissions:</p>
+
+        <div class="child-revenues-list">
+          <div class="table-headers">
+            <div class="item-a">
+              <strong>Month</strong>
+            </div>
+            <div class="item-b">
+              <strong>Total sales</strong>
+            </div>
+            <div class="item-c">
+              <strong>Tot. comm.</strong>
+            </div>
+            <div class="item-d">
+              <strong>Status</strong>
+            </div>
+            <div class="item-e">
+              <strong>Payment on</strong>
+            </div>
+          </div>
+
+          <% if @delivered_services == [] %>
+            <p class="msg-no-service">You do not have any delivered services</p>
           <% else %>
-          Paid
-          <% end %>
-        <% else %>
-          <% if @monthly_comm[index -1] == 0 %>
-          -
-          <% else %>
-          Pending
-          <% end %>
-        <% end %>
-      </div>
-      <div class="item-e">
-        <% if @monthly_comm[index -1] == 0 %>
-        -
-        <% else %>
-        <%= @months_hash[index +1] %>, 1st <%= DateTime.now.year %>
-        <% end %>
-      </div>
-    </div>
-    <% end %>
-    <% end %>
-  </div>
-
-
-    <h4>Confirmed services and future commissions:</h4>
-
-    <% @months_hash.each do |index, month| %>
-      <% if index <= DateTime.now.month %>
-        <div class="month">
-          <div class="item-a"><%= month %></div>
-          <div class="item-b">EUR <%= @monthly_potential_revenue[index -1] %></div>
-          <div class="item-c">EUR <%= @monthly_potential_comm[index -1] %></div>
-          <div class="item-d">
-            <% if index < DateTime.now.month %>
-              <% if @monthly_comm[index -1] == 0 %>
-                -
-              <% else %>
-                Paid
-              <% end %>
-            <% else %>
-              <% if @monthly_comm[index -1] == 0 %>
-                -
-              <% else %>
-                Pending
+            <% @months_hash.each do |index, month| %>
+              <% if (index <= DateTime.now.month) && @monthly_revenue[index -1] != 0 %>
+                <div class="month">
+                  <div class="item-a">
+                    <%= month %>
+                  </div>
+                  <div class="item-b">EUR <%= @monthly_revenue[index -1] %></div>
+                  <div class="item-c">
+                    EUR <%= @monthly_comm[index -1] %>
+                  </div>
+                  <div class="item-d">
+                    <% if index < DateTime.now.month %>
+                    <% if @monthly_comm[index -1] == 0 %>
+                    -
+                    <% else %>
+                    Paid
+                    <% end %>
+                    <% else %>
+                    <% if @monthly_comm[index -1] == 0 %>
+                    -
+                    <% else %>
+                    Pending
+                    <% end %>
+                    <% end %>
+                  </div>
+                  <div class="item-e">
+                    <% if @monthly_comm[index -1] == 0 %>
+                    -
+                    <% else %>
+                    <%= @months_hash[index +1] %>, 1st <%= DateTime.now.year %>
+                    <% end %>
+                  </div>
+                </div>
               <% end %>
             <% end %>
-          </div>
-          <div class="item-e">
-            <% if @monthly_potential_comm[index -1] == 0 %>
-            -
-            <% else %>
-            Commission to be paid on: <%= @months_hash[index +1] %>, 1st <%= DateTime.now.year %>
-            <% end %>
-          </div>
+          <% end %>
         </div>
-    <% end %>
-  <% end %>
+    </div>
+
+    <div class="col-md-6">
+        <p class="msg-confirmed-service">Confirmed services and future commissions:</p>
 
 
-  <p><strong>NB:</strong> Commentaire de devéloppement: <em>Le tri se fait en fonction du statut "Done" ou pas (string), sensible à la casse</em></p>
+        <div class="child-revenues-list">
+          <div class="table-headers">
+            <div class="item-a">
+              <strong>Month</strong>
+            </div>
+            <div class="item-b">
+              <strong>Total sales</strong>
+            </div>
+            <div class="item-c">
+              <strong>Tot. comm.</strong>
+            </div>
+            <div class="item-d">
+              <strong>Status</strong>
+            </div>
+            <div class="item-e">
+              <strong>Payment on</strong>
+            </div>
+          </div>
+
+          <% if @pending_delivery_services == [] %>
+            <p class="msg-no-service">You do not have any confirmed services</p>
+          <% else %>
+            <% @months_hash.each do |index, month| %>
+              <% if (index <= DateTime.now.month) && @monthly_revenue[index -1] != 0 %>
+              <div class="month">
+                <div class="item-a"><%= month %></div>
+                <div class="item-b">EUR <%= @monthly_potential_revenue[index -1] %></div>
+                <div class="item-c">EUR <%= @monthly_potential_comm[index -1] %></div>
+                <div class="item-d">
+                  <% if index < DateTime.now.month %>
+                  <% if @monthly_comm[index -1] == 0 %>
+                  -
+                  <% else %>
+                  Paid
+                  <% end %>
+                  <% else %>
+                  <% if @monthly_comm[index -1] == 0 %>
+                  -
+                  <% else %>
+                  Pending
+                  <% end %>
+                  <% end %>
+                </div>
+                <div class="item-e">
+                  <% if @monthly_potential_comm[index -1] == 0 %>
+                  -
+                  <% else %>
+                  Commission to be paid on: <%= @months_hash[index +1] %>, 1st <%= DateTime.now.year %>
+                  <% end %>
+                </div>
+              </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+        </div>
+    </div>
   </div>
+
+</div>
+

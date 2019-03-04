@@ -7,7 +7,6 @@ class ServicesController < ApplicationController
   end
 
   def show
-    #@service = Service.find(params[:id])
     @service = current_user.services.where(status: 'paid').find(params[:id])
   end
 
@@ -35,7 +34,7 @@ class ServicesController < ApplicationController
 
   def edit
     @service = Service.find(params[:id])
-    @hours = session[:param_home]["hours"]
+    @hours = @service.number_hours_at_disposal
     @service.number_hours_at_disposal = @hours.to_i
     @service.car
   end
@@ -68,8 +67,6 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-   # params.require(:service).permit(:flight_number, :number_hours_at_disposal, :number_of_passengers, :number_normal_luggage, :number_hand_luggage, :number_odd_luggage, :description_odd_luggage, :additional_info, :commission_rate, :car, :user, :pick_up_date, :final_price, :status, :payment, :driver_language, :service_type, :pick_up_address, :destination_address)
-  # params.permit(:data)
-  params.require(:service).permit(:final_price, :flight_number, :driver_language, :number_hours_at_disposal, :number_of_passengers, :number_normal_luggage, :number_hand_luggage, :number_odd_luggage, :description_odd_luggage, :additional_info, :commission_rate, :title, :first_name, :last_name, :email, :mobile)
+  params.require(:service).permit(:final_price, :flight_number, :driver_language, :number_hours_at_disposal, :number_of_passengers, :number_normal_luggage, :number_hand_luggage, :number_odd_luggage, :description_odd_luggage, :additional_info, :commission_rate, :title, :first_name, :last_name, :email, :mobile, :status)
   end
 end

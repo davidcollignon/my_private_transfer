@@ -1,0 +1,58 @@
+
+<p>Dear <%= @service.user.agency.capitalize!%></p>
+
+<p> Private Transfer confirms your payment for the following service: </p>
+
+<table>
+  <thead>
+    <tr>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Pick-up date: </td>
+      <td><%=@service.pick_up_date %></td>
+    </tr>
+     <td>Pick-up address: </td>
+     <td><%=@service.pick_up_address %></td>
+   </tr>
+   <tr>
+     <td>Number of hours at disposal: </td>
+     <td><%= @service.number_hours_at_disposal %></td>
+   </tr>
+    <tr>
+     <td>Number of passengers: </td>
+     <td><%=@service.number_of_passengers %></td>
+   </tr>
+    <tr>
+     <td>Driver language: </td>
+     <td><%=@service.driver_language %></td>
+   </tr>
+    <tr>
+     <td>Number of normal luggage:</td>
+     <td><%=@service.number_normal_luggage %></td>
+   </tr><tr>
+     <td>Number of hand luggage:</td>
+     <td><%=@service.number_hand_luggage %></td>
+   </tr>
+   <tr>
+     <td>Number of odd luggage:</td>
+     <td><%=@service.number_odd_luggage %></td>
+   </tr>
+    <tr>
+     <td>Number of odd luggage:</td>
+     <td><%=@service.number_odd_luggage %></td>
+   </tr>
+    <tr>
+     <td>Commission :</td>
+     <td><%=@service.commission_rate%>%</td>
+   </tr>
+    <tr>
+     <td>Price:</td>
+     <td><%=@service.final_price / 100 %></td>
+   </tr>
+  </tbody>
+</table>
+
+<p>Sincerly,</p>
+<p>Your Private Transfer Team</p>

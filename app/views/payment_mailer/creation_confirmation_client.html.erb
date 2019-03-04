@@ -1,18 +1,18 @@
-<p>Dear <%= @service.title %>
-  <%= @service.last_name%>, </p>
+<p>Dear <% if @service.title == 0 %>
+  Mrs.
+  <% else %>
+  Mr.
+ <%end%>
+<%= @service.last_name%>, </p>
 
-<p> <%=@service.user.agency%> confirms your transfer for the following service: </p>
-<ul>
-         <li>Pick-up date: <%=@service.pick_up_date %></li>
-         <li>Pick-up adress: <%=@service.pick_up_address%></li>
-         <li>Number of hours at disposal: <%=@service.number_hours_at_disposal %></li>
-         <li>Number of passengers: <%=@service.number_of_passengers %></li>
-         <li>Driver language: <%=@service.driver_language %></li>
-         <li>Number of normal luggage: <%=@service.number_normal_luggage %></li>
-         <li>Number of hand luggage: <%=@service.number_hand_luggage %></li>
-         <li>Number of odd luggage: <%=@service.number_odd_luggage %></li>
-         <li>Price: <%=@service.final_price / 100 %>€</li>
-   </ul>
+ <p> Hereby, we confirm your transfert
+  <ul>
+  <li> from <%=@service.pick_up_address %>,</li>
+  <li> on <%=@service.pick_up_date.strftime("%A, %m/%d/%Y")%>,</li>
+  <li> at <%=@service.pick_up_date.strftime("%Ih%M %P")%>,</li>
+  <li> for <%=@service.number_hours_at_disposal.round %>h.</li>
+  </ul>
+  Your car will be a <%=@service.car.brand %> and your driver speaks <%=@service.driver_language%>. We wish you a pleasant journey.</p>
 
 <p>Sincerly,</p>
 <p>Your <%= @service.user.agency %> </p>

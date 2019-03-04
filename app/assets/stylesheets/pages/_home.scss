@@ -35,6 +35,7 @@ ul.menu-search li.active  { opacity: 1;  }
 .banner {
   background-image:url(image_path('mpt-bg.jpg'));
   background-size:cover;
+  background-position: center center;
 
   height: 100vh;
   /* height: calc(100vh - 70px);*/
@@ -50,6 +51,10 @@ flex-direction: column;
   }
 }
 
+.banner .info { display: flex;
+align-items:center;
+padding:2em; }
+
 .info h1 {
   margin: 0;
   font-size:3em;
@@ -61,6 +66,7 @@ flex-direction: column;
 .search {
   background-color: rgba(0,0,0,0.2);
   box-shadow: 1px 2px rgba(0, 0, 0, 0.2);
+  font-weight: 100;
 }
 
 .index h1 {
@@ -74,9 +80,10 @@ flex-direction: column;
 display: flex;
 justify-content: space-between;
 align-items: center;
-color: $mpt-sand;
 }
 
 .flatpickr-calendar .flatpickr-day.selected { background-color:$mpt-sand;
   border-color:$mpt-light;  }
 
+
+.input-group-addon { color: #cfcfcf; background-color:#FFF; border:none; }

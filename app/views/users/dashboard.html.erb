@@ -37,7 +37,12 @@
       <% @confirmed_services.each do |service| %>
         <div class="transfer">
           <div class="item-a">Transfer</div>
-          <div class="item-b"><%= service.pick_up_date.strftime("%B %d, %Y") %></div>
+          <div class="item-b">
+            <% if service.pick_up_date.nil? %>
+             To be confirmed</div>
+            <% else %>
+             <%= service.pick_up_date.strftime("%B %d, %Y") %></div>
+            <% end %>
           <div class="item-c">
             <% if service.last_name.nil? %>
               To be confirmed

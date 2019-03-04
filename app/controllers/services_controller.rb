@@ -28,8 +28,12 @@ class ServicesController < ApplicationController
     @service.user = current_user
     @service.pick_up_address = session[:param_home]["departure"]
     @service.pick_up_date = session[:param_home]["pick_up_date"]
-    @service.save!
-    redirect_to new_service_payment_path(@service)
+
+    if @service.save
+      redirect_to new_service_payment_path(@service)
+    else
+      render :new
+    end
   end
 
   def edit

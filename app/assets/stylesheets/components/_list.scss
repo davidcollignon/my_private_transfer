@@ -12,6 +12,14 @@ flex: 1 21%;
 position: relative;
  }
 
+.price { position: absolute; top:1em; right: 1em;
+background-color: $mpt-dark; color:#FFF; padding:0.5em; border-radius: 1px;  }
+.price h4 {
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+}
+
  .car a {
 position: absolute;
 left: 0;

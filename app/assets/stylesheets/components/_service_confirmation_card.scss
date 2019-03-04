@@ -1,0 +1,32 @@
+.card {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+}
+
+.container h1 {
+  text-align: left;
+}
+
+.row-recap  {
+  border-bottom:1px solid black;
+
+}
+
+.row {
+ padding-bottom:125px;
+}
+
+.row-price {
+ text-align: right;
+}
+
+.pic img {
+  width: 100%;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: space-around;
+}

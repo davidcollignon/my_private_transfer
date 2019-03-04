@@ -1,63 +1,62 @@
-<div class="row">
-  <div class="col-xs-12 col-xs-offset-3">
-  <h1>Reservation Confirmation for :<%= @service.car_id%></h1>
+<div class="container">
+  <div class="row-recap">
+    <h1>Please review your services</h1>
+    <h2><%= @service.service_type %></h2>
+    <h2><%=@service.pick_up_address %> - <%=@service.destination_address%> - <%=@service.pick_up_date %></h2>
   </div>
-</div>
-<div class="row">
-  <div class="col-xs-12 col-xs-offset-3">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Reservation details</h5>
-        <ul>
-          <li>Pick-up date: <%=@service.pick_up_date %></li>
-          <li>Pick-up address: <%=@service.pick_up_address %></li>
-          <li>Destination address: <%=@service.destination_address %></li>
-          <li>Flight number: <%=@service.flight_number %></li>
-          <li>Number of passengers: <%=@service.number_of_passengers %></li>
-          <li>Driver language: <%=@service.driver_language %></li>
 
-          <li>Number of odd luggage: <%=@service.number_odd_luggage %></li>
-          <li>Number of normal luggage: <%=@service.number_normal_luggage %></li>
-          <li>Number of hand luggage: <%=@service.number_hand_luggage %></li>
-          <li>Number of hours at disposal: <%=@service.number_hours_at_disposal %></li>
-          </li>
-        </ul>
-        <p class="card-text"></p>
-        <%= link_to "Edit", edit_service_path(@service), method: :get, class: "btn btn-primary"  %>
-        <%= link_to "Delete", service_path(@service),
-      method: :delete,
-      data: { confirm: "Are you sure?" },
-      class: "btn btn-primary" %>
+  <div class="row">
+   <div class="car-show">
+      <div class="col-xs-12 col-sm-4">
+         <div class="info">
+           <h2><%= @service.car.brand %></h2>
+           <p class="desc"><i class="fas fa-users"></i> max. <%= @service.car.passenger_capacity %> | <i class="fas fa-suitcase"></i> max. <%= @service.car.luggage_capacity %></p>
+           <p><%= @service.car.description %></p>
+         </div>
       </div>
+      <div class="col-xs-12 col-sm-4">
+         <div class="pic">
+           <%= image_tag "mercedes.jpg" %>
+         </div>
     </div>
-  </div>
-  <div class="col-xs-12 col-xs-offset-3">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Price details</h5>
-        <p class="card-text">
-          <ul>
-            <li>Reservation status: <%=@service.status %></li>
-            <li>Your commission rate: <%=@service.commission_rate %></li>
-          </ul>
-        </p>
-        <%= form_tag service_payments_path(@service) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@service.final_price/100) %></span>
-    </label>
-  </article>
+      <div class="col-xs-12 col-sm-4">
+         <div class="price">
+           <h1><%= @service.car.price_per_km  %>euros</h1>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="Service"
-    data-email="<%= current_user.email %>"
-    data-description="Service <%= @service.car_id %>"
-    data-amount="<%= @service.final_price_cents / 100 %>"
-    data-currency="<%= @service.final_price.currency %>"></script>
-<% end %>
+           <p>All prices include VAT, fees & tip</p>
+             <div class="card-buttons">
+               <p><%= link_to "Edit", edit_service_path(@service), method: :get, class: "btn btn-primary"  %></p>
+               <p><%= link_to "Remove", service_path(@service),
+                 method: :delete,
+                 data: { confirm: "Are you sure?" },
+                 class: "btn btn-primary" %></p>
+             </div>
+         </div>
       </div>
-    </div>
+   </div>
   </div>
+
+
+
+  <div class="row-price">
+   <p>Total Price without commission: <%=(@service.car.price_per_hour_cents * @hours.to_i)%> euros</p>
+   <p>Commission: <%=@service.commission_rate %> %</p>
+   <p>Total Price wiht commission: <%=(@service.final_price)/100%> euros</p>
+   <%= form_tag service_payments_path(@service) do %>
+      <article>
+        <label class="amount">
+          <span>Amount: <%= humanized_money_with_symbol(@service.final_price/100) %></span>
+        </label>
+      </article>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+     data-name="Service"
+     data-email="<%= current_user.email %>"
+     data-description="Service <%= @service.car_id %>"
+     data-amount="<%= @service.final_price_cents / 100 %>"
+     data-currency="<%= @service.final_price.currency %>"></script>
+    <% end %>
+  </div>
+
 </div>
 

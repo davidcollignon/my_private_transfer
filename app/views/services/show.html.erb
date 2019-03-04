@@ -1,9 +1,45 @@
-<h1>Services#show</h1>
+<div class="container">
+  <div class="row-recap">
+    <h1>Service confirmation</h1>
+    <h2><%= @service.service_type %></h2>
+    <h2><%=@service.pick_up_address %> - <%=@service.destination_address%> - <%=@service.pick_up_date %></h2>
+  </div>
 
+  <div class="row">
+   <div class="car-show">
+      <div class="col-xs-12 col-sm-4">
+         <div class="info">
+           <h2><%= @service.car.brand %></h2>
+           <p class="desc"><i class="fas fa-users"></i> max. <%= @service.car.passenger_capacity %> | <i class="fas fa-suitcase"></i> max. <%= @service.car.luggage_capacity %></p>
+           <p><%= @service.car.description %></p>
+         </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+         <div class="pic">
+           <%= image_tag "mercedes.jpg" %>
+         </div>
+    </div>
+      <div class="col-xs-12 col-sm-4">
+         <div class="price">
+           <h1><%= @service.car.price_per_km  %>euros</h1>
 
-<h1>Reservation Confirmation</h1>
-<h2><%= @service.flight_number %></h2>
+           <p>All prices include VAT, fees & tip</p>
+         </div>
+      </div>
+   </div>
+  </div>
 
-<p><%= link_to "Continue", dashboard_path %> </p>
-
+    <div class="row-price">
+      <p>Total Price without commission: <%=(@service.car.price_per_hour_cents * @hours.to_i)%> euros</p>
+      <p>Commission: <%=@service.commission_rate %> %</p>
+      <p>Total Price wiht commission: <%=(@service.final_price)/100%> euros</p>
+        <div class="card-buttons">
+          <p><%= link_to "Go to Dashboard", dashboard_path, class: "btn btn-primary one" %></p>
+          <p><%= link_to "Export Invoice", service_path(@service),
+            method: :delete,
+            data: { confirm: "Are you sure?" },
+            class: "btn btn-primary two" %></p>
+        </div>
+    </div>
+</div>
 

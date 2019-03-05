@@ -6,40 +6,42 @@
   </div>
 
   <div class="row">
-   <div class="car-show">
-      <div class="col-xs-12 col-sm-4">
-         <div class="info">
-           <h2><%= @service.car.brand %></h2>
-           <p class="desc"><i class="fas fa-users"></i> max. <%= @service.car.passenger_capacity %> | <i class="fas fa-suitcase"></i> max. <%= @service.car.luggage_capacity %></p>
-           <p><%= @service.car.description %></p>
-         </div>
+    <div class="car1">
+     <div class="car-show">
+        <div class="col-xs-12 col-sm-4">
+           <div class="info">
+             <h2><%= @service.car.brand %></h2>
+             <p class="desc"><i class="fas fa-users"></i> max. <%= @service.car.passenger_capacity %> | <i class="fas fa-suitcase"></i> max. <%= @service.car.luggage_capacity %></p>
+             <p><%= @service.car.description %></p>
+           </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+           <div class="pic">
+             <%= image_tag "mercedes.jpg" %>
+           </div>
       </div>
-      <div class="col-xs-12 col-sm-4">
-         <div class="pic">
-           <%= image_tag "mercedes.jpg" %>
-         </div>
-    </div>
-      <div class="col-xs-12 col-sm-4">
-         <div class="price">
-           <h1><%= @service.car.price_per_km  %>euros</h1>
+        <div class="col-xs-12 col-sm-4">
+           <div class="price">
+             <h1><%= @service.car.price_per_hour_cents %> euros</h1>
 
-           <p>All prices include VAT, fees & tip</p>
-         </div>
-      </div>
-   </div>
+             <p>All prices include VAT, fees & tip</p>
+           </div>
+        </div>
+     </div>
+    </div>
   </div>
 
-    <div class="row-price">
-      <p>Total Price without commission: <%=(@service.car.price_per_hour_cents * @hours.to_i)%> euros</p>
-      <p>Commission: <%=@service.commission_rate %> %</p>
-      <p>Total Price wiht commission: <%=(@service.final_price)/100%> euros</p>
-        <div class="card-buttons">
-          <p><%= link_to "Go to Dashboard", dashboard_path, class: "btn btn-primary one" %></p>
-          <p><%= link_to "Export Invoice", service_path(@service),
-            method: :delete,
-            data: { confirm: "Are you sure?" },
-            class: "btn btn-primary two" %></p>
-        </div>
-    </div>
+      <div class="row-price">
+        <p>Total Price without commission: <%=@service.car.price_per_hour_cents * @hours.to_i)%> euros</p>
+        <p>Commission: <%=@service.commission_rate %> %</p>
+        <p>Total Price with commission: <%=(@service.final_price)/100%> euros</p>
+          <div class="card-buttons1">
+            <p><%= link_to "Go to Dashboard", dashboard_path, class: "btn btn-primary" %></p>
+            <p><%= link_to "Export Invoice", service_path(@service),
+              method: :delete,
+              data: { confirm: "Are you sure?" },
+              class: "btn btn-primary" %></p>
+          </div>
+      </div>
 </div>
 

@@ -20,7 +20,6 @@ class ServicesController < ApplicationController
     # @hours = params[:service][:number_hours_at_disposal]
     @hours = session[:param_home]["hours"]
     @commission_rate = params[:service][:commission_rate]
-    @amount_raw = @car.price_per_hour_cents * @hours.to_i
     @amount = @car.price_per_hour_cents * @hours.to_i * (1 + (@commission_rate.to_f) / 100)
     @service = Service.new(service_params)
     @service.car = @car

@@ -22,7 +22,7 @@
       </div>
         <div class="col-xs-12 col-sm-4">
            <div class="price">
-             <h1><%= @service.car.price_per_hour_cents %> euros</h1>
+             <h1><%=@service.car.price_per_hour%> euros</h1>
 
              <p>All prices include VAT, fees & tip</p>
            </div>
@@ -31,17 +31,6 @@
     </div>
   </div>
 
-      <div class="row-price">
-        <p>Total Price without commission: <%=@service.car.price_per_hour_cents * @hours.to_i)%> euros</p>
-        <p>Commission: <%=@service.commission_rate %> %</p>
-        <p>Total Price with commission: <%=(@service.final_price)/100%> euros</p>
-          <div class="card-buttons1">
-            <p><%= link_to "Go to Dashboard", dashboard_path, class: "btn btn-primary" %></p>
-            <p><%= link_to "Export Invoice", service_path(@service),
-              method: :delete,
-              data: { confirm: "Are you sure?" },
-              class: "btn btn-primary" %></p>
-          </div>
-      </div>
+
 </div>
 

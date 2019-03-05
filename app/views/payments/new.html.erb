@@ -22,7 +22,7 @@
       </div>
         <div class="col-xs-12 col-sm-4">
            <div class="price">
-             <h1><%= @service.car.price_per_km  %>euros</h1>
+             <h1><%= @service.car.price_per_hour%> euros</h1>
 
              <p>All prices include VAT, fees & tip</p>
                <div class="card-buttons">
@@ -41,7 +41,7 @@
 
 
   <div class="row-price">
-   <p>Total Price without commission: <%=@service.commission_rate%> euros</p>
+   <p>Total Price without commission: <%=(@service.final_price)/(100+@service.commission_rate)%> euros</p>
    <p>Commission: <%=@service.commission_rate %> %</p>
    <p>Total Price with commission: <%=(@service.final_price)/100%> euros</p>
    <%= form_tag service_payments_path(@service) do %>

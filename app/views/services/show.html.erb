@@ -35,10 +35,7 @@
       <p>Total Price wiht commission: <%=(@service.final_price)/100%> euros</p>
         <div class="card-buttons">
           <p><%= link_to "Go to Dashboard", dashboard_path, class: "btn btn-primary one" %></p>
-          <p><%= link_to "Export Invoice", service_path(@service),
-            method: :delete,
-            data: { confirm: "Are you sure?" },
-            class: "btn btn-primary two" %></p>
+          <p><%=link_to "Export Invoice", send_invoice_email_client_service_path(@service), class: "btn btn-primary one"%></p>
         </div>
     </div>
 </div>

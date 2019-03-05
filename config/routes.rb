@@ -10,5 +10,8 @@ Rails.application.routes.draw do
 
   resources :services do
     resources :payments, only: [:new, :create]
+      member do
+        get 'send_invoice_email_client'
+      end
   end
 end

@@ -70,6 +70,12 @@ class ServicesController < ApplicationController
     redirect_to root_path
   end
 
+  def send_invoice_email_client
+    @service = Service.find(params[:id])
+    PaymentMailer.creation_confirmation_client(@service).deliver_now
+    render :show
+  end
+
   private
 
   def service_params

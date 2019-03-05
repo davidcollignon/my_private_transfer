@@ -1,7 +1,6 @@
 class PaymentsController < ApplicationController
     before_action :set_service
 
-
   def new
     @service = Service.find(params[:service_id])
   end
@@ -18,10 +17,8 @@ class PaymentsController < ApplicationController
     description:  "Payment for your service confirmed",
     currency:     @service.final_price.currency
   )
-
   @service.update(payment: charge.to_json, status: 'paid')
-  send_invoice_email_agent
-  send_invoice_email_client
+  ServiceMailer.transfer_confirmation(@service).deliver_now
   redirect_to service_path(@service)
   end
 
@@ -31,13 +28,7 @@ private
     @service = current_user.services.where(status: 'pending').find(params[:service_id])
   end
 
-    private
-
   def send_invoice_email_agent
     PaymentMailer.creation_confirmation_agent(@service).deliver_now
-  end
-
-  def send_invoice_email_client
-    PaymentMailer.creation_confirmation_client(@service).deliver_now
   end
 end

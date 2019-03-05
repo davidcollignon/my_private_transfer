@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       patch 'confirm_update'
     end
     resources :payments, only: [:new, :create]
-
+    member do
+       get 'send_invoice_email_client'
+    end
   end
 end

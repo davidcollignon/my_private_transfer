@@ -16,7 +16,8 @@ end
 10.times do
   company = Company.new(
     name: Faker::Company.unique.name,
-    address: Faker::Address.full_address
+    address: Faker::Address.full_address,
+    email: "clauditiwiesiti@gmail.com"
     )
   company.save!
 end

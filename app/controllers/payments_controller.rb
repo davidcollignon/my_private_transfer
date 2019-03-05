@@ -17,8 +17,8 @@ class PaymentsController < ApplicationController
     description:  "Payment for your service confirmed",
     currency:     @service.final_price.currency
   )
-
   @service.update(payment: charge.to_json, status: 'paid')
+  ServiceMailer.transfer_confirmation(@service).deliver_now
   redirect_to service_path(@service)
   end
 

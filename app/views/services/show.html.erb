@@ -2,7 +2,7 @@
   <div class="row-recap">
     <h1>Service confirmation</h1>
     <h2><%= @service.service_type %></h2>
-    <h2><%=@service.pick_up_address %> - <%=@service.destination_address%> - <%=@service.pick_up_date %></h2>
+    <p><%=@service.pick_up_address %> - <%=@service.destination_address%> - <%=@service.pick_up_date %></p>
   </div>
 
   <div class="row">
@@ -31,6 +31,15 @@
     </div>
   </div>
 
+<div class="row-price">
+       <p>Total Price without commission: <%=(@service.final_price)/(100+@service.commission_rate)%> euros</p>
+       <p>Commission: <%=@service.commission_rate %> %</p>
+       <p>Total Price with commission: <%=(@service.final_price)/100%> euros</p>
+         <div class="card-buttons1">
+           <p><%= link_to "Go to Dashboard", dashboard_path, class: "btn btn-primary" %></p>
+
+         </div>
+     </div>
 
 </div>
 

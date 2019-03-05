@@ -20,7 +20,8 @@ class PaymentsController < ApplicationController
   )
 
   @service.update(payment: charge.to_json, status: 'paid')
-  send_invoice_email
+  send_invoice_email_agent
+  send_invoice_email_client
   redirect_to service_path(@service)
   end
 
@@ -32,7 +33,11 @@ private
 
     private
 
-  def send_invoice_email
-    PaymentMailer.creation_confirmation(@service).deliver_now
+  def send_invoice_email_agent
+    PaymentMailer.creation_confirmation_agent(@service).deliver_now
+  end
+
+  def send_invoice_email_client
+    PaymentMailer.creation_confirmation_client(@service).deliver_now
   end
 end

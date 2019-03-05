@@ -100,4 +100,7 @@ Rails.application.configure do
   config.action_mailer.postmark_settings   = { api_key: ENV['POSTMARK_API_KEY'] }
   config.action_mailer.default_url_options = { host: "my-private-transfer-staging.herokuapp.com" }
     # or your custom domain name eg. "www.yourdomain.com"
+
+ # config.action_mailer.delivery_method = :smtp
+ #config.action_mailer.default_url_options = { host: "my-private-transfer-staging.herokuapp.com" }
 end

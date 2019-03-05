@@ -1,4 +1,5 @@
-<h1>Services#edit</h1>
+<div class="container">
+<h1>Edit</h1>
 
 <%= simple_form_for (@service) do |f| %>
 
@@ -9,10 +10,9 @@
 </div>
 <div class="col-xs-12 col-sm-6">
   <%= f.input :driver_language, label: "Driver's Language"%>
-
-
+</div>
+<div class="col-xs-12 col-sm-6">
   <%= f.input :number_hours_at_disposal, label: "How many hours you want to book the service?"%>
-
 </div>
 </div>
 
@@ -25,13 +25,13 @@
   <%= f.input :number_of_passengers, collection: 1..10, label: "Number of passengers" %>
 </div>
 <div class="col-xs-12 col-sm-6">
-  <%= f.input :number_normal_luggage, collection: 1..10, label: "Luggage" %>
+  <%= f.input :number_normal_luggage, collection: 0..10, label: "Luggage" %>
 </div>
 <div class="col-xs-12 col-sm-6">
-  <%= f.input :number_hand_luggage, collection: 1..10, label: "Hand Luggage" %>
+  <%= f.input :number_hand_luggage, collection: 0..10, label: "Hand Luggage" %>
 </div>
 <div class="col-xs-12 col-sm-6">
-  <%= f.input :number_odd_luggage, collection: 1..10, label: "Odd Luggage" %>
+  <%= f.input :number_odd_luggage, collection: 0..10, label: "Odd Luggage" %>
 
 
 </div>
@@ -76,3 +76,4 @@
   <%= f.submit "Continue", class: "btn btn-primary" %>
  <% end %>
 
+</div>

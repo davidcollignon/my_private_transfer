@@ -7,7 +7,6 @@ class ServicesController < ApplicationController
   end
 
   def show
-    #@service = Service.find(params[:id])
     @service = current_user.services.where(status: 'paid').find(params[:id])
   end
 
@@ -29,14 +28,20 @@ class ServicesController < ApplicationController
     @service.status = "pending"
     @service.user = current_user
     @service.pick_up_address = session[:param_home]["departure"]
-    @service.pick_up_date = DateTime.now
-    @service.save!
-    redirect_to new_service_payment_path(@service)
+    @service.pick_up_date = session[:param_home]["pick_up_date"]
+    @service.number_hours_at_disposal = @hours
+
+    if @service.save
+      redirect_to new_service_payment_path(@service)
+    else
+      render :new
+    end
+
   end
 
   def edit
     @service = Service.find(params[:id])
-    @hours = session[:param_home]["hours"]
+    @hours = @service.number_hours_at_disposal
     @service.number_hours_at_disposal = @hours.to_i
     @service.car
   end
@@ -69,8 +74,6 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-   # params.require(:service).permit(:flight_number, :number_hours_at_disposal, :number_of_passengers, :number_normal_luggage, :number_hand_luggage, :number_odd_luggage, :description_odd_luggage, :additional_info, :commission_rate, :car, :user, :pick_up_date, :final_price, :status, :payment, :driver_language, :service_type, :pick_up_address, :destination_address)
-  # params.permit(:data)
-  params.require(:service).permit(:final_price, :flight_number, :driver_language, :number_hours_at_disposal, :number_of_passengers, :number_normal_luggage, :number_hand_luggage, :number_odd_luggage, :description_odd_luggage, :additional_info, :commission_rate, :title, :first_name, :last_name, :email, :mobile, :service_type)
+    params.require(:service).permit(:final_price, :flight_number, :driver_language, :number_hours_at_disposal, :number_of_passengers, :number_normal_luggage, :number_hand_luggage, :number_odd_luggage, :description_odd_luggage, :additional_info, :commission_rate, :title, :first_name, :last_name, :email, :mobile, :status)
   end
 end

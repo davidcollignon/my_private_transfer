@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_28_133132) do
+ActiveRecord::Schema.define(version: 2019_03_05_081813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2019_02_28_133132) do
     t.integer "number_odd_luggage"
     t.text "description_odd_luggage"
     t.integer "number_hand_luggage"
-    t.string "additional_info"
+    t.text "additional_info"
     t.float "commission_rate", default: 0.0
     t.string "service_type"
     t.string "pick_up_address"

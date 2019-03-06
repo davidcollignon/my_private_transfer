@@ -77,11 +77,11 @@ class ServicesController < ApplicationController
    @service = Service.find(params[:id])
     if @service.update(service_params)
       flash[:notice] = "Transfer added"
-      send_rating_email_client
       redirect_to confirm_service_path
     else
       redirect_to confirm_service_path
     end
+    send_rating_email_client
   end
 
 

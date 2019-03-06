@@ -90,7 +90,6 @@ padding:2em; }
 .input-group-addon { color: #cfcfcf; background-color:#FFF; border:none; }
 
 .container-custom {
-
 }
 
 .intro-section {
@@ -295,4 +294,15 @@ img {
 
 .car-description {
   width: 60vw;
+
+.confirm-grid {
+  margin: 1em 0;
+  padding:2em;
+  background-color: $mpt-light;
+  display: grid;
+  grid-template-columns:1fr 2fr;
+  }
+
+.confirm-grid > span {
+    padding: 0.5em;
 }

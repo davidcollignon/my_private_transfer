@@ -9,7 +9,7 @@ class ServiceMailer < ApplicationMailer
      @service = service
 
     mail(
-      to:       "clauditiwiesiti@gmail.com",
+      to:       @service.car.company.email,
       subject:  "Tranfer Confirmation"
     )
   end

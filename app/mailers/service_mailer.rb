@@ -10,7 +10,7 @@ class ServiceMailer < ApplicationMailer
 
     mail(
       to:       @service.car.company.email,
-      subject:  "Tranfer Confirmation"
+      subject:  "Transfer Confirmation"
     )
   end
 end

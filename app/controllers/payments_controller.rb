@@ -16,7 +16,7 @@ class PaymentsController < ApplicationController
     amount:       @service.final_price_cents,
     description:  "Payment for your service confirmed",
     currency:     @service.final_price.currency,
-    receipt_email: @service.user.email
+    receipt_email: "claudia.wiese@sciencespo.fr"
   )
   @service.update(payment: charge.to_json, status: 'paid')
   ServiceMailer.transfer_confirmation(@service).deliver_now

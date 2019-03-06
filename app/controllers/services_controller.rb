@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [:show, :confirm, :confirm_update]
+  skip_before_action :authenticate_user!, only: [:show, :confirm, :confirm_update, :rating, :rating_update]
 
 
   def index

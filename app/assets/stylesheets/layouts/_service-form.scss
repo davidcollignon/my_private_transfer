@@ -1,0 +1,56 @@
+.service-form {
+  display: flex;
+}
+
+@media all and (max-width: 500px) {
+  .service-form {
+    flex-direction: column;
+  }
+}
+
+.service-progress {
+  flex: 0 0 20vw;
+  background-color: $mpt-dark;
+  height: calc(100vh);
+  position: sticky;
+  top: 0;
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.service-menu {
+
+}
+
+.service-progress ul {
+  list-style-type:none;
+  padding:0;
+  margin:0;
+
+}
+
+.service-progress li {
+  margin: 0 0 1em 0;
+  opacity: 0.4;
+ }
+
+ .service-progress li i {
+  margin-right:1em;
+ }
+
+.service-progress li.active {
+opacity:1;
+}
+
+ .service-progress li.active i {
+
+ }
+
+.service-create {
+  padding: 2em;
+
+
+}
+

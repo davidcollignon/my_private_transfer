@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:show, :confirm, :confirm_update]
 
 
   def index
@@ -82,7 +82,7 @@ class ServicesController < ApplicationController
       redirect_to confirm_service_path
     end
   end
-  
+
   def send_invoice_email_client
     @service = Service.find(params[:id])
     PaymentMailer.creation_confirmation_client(@service).deliver_now

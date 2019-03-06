@@ -1,14 +1,9 @@
-<p style="color: #444444; font-family: Helvetica, Arial, sans-serif; font-size: 12px; font-weight: normal; line-height: 20px;"> Dear driver, </p>
+<p style="color: #444444; font-family: Helvetica, Arial, sans-serif; font-size: 12px; font-weight: normal; line-height: 20px;"> Dear customer, </p>
 
-<p style="color: #444444; font-family: Helvetica, Arial, sans-serif; font-size: 12px; font-weight: normal; line-height: 20px;"> Please find the information for your transfer below: </p>
+<p style="color: #444444; font-family: Helvetica, Arial, sans-serif; font-size: 12px; font-weight: normal; line-height: 20px;">In order to continously improve our transfer service, we would be pleased if you could rate your following transfer: </p>
 
 <table style="width:500px; border:0; padding:0; color: #444444; font-family: Helvetica, Arial, sans-serif; font-size: 12px; font-weight: normal; line-height: 20px;">
 
-
-<tr>
-    <td width="100px;" style="padding:5px 0;">For :</td>
-    <td style="padding:5px 0;"><%=@service.first_name %><%=@service.last_name %></td>
-</tr>
 <tr>
     <td style="padding:5px 0;">From :</td>
     <td style="padding:5px 0;"><%=@service.pick_up_address %></td>
@@ -27,11 +22,14 @@
 </table>
 
 <p style="color: #444444; font-family: Helvetica, Arial, sans-serif; font-size: 12px; font-weight: normal; line-height: 20px;">
-  Please click on the link below, when your transfer is done: <br />
-  <%= link_to "Confirm your transfer", confirm_service_url(@service) %>
+  Please click on the link below to rate your transfer experience: <br />
+  <%= link_to "Rate your transfer Experience", rating_service_url(@service) %>
 </p>
 
-
+<p style="color: #444444; font-family: Helvetica, Arial, sans-serif; font-size: 12px; font-weight: normal; line-height: 20px;">
+  Thank you for contributing to our service improvement.<br />
+  %>
+</p>
 
 <p style="color: #444444; font-family: Helvetica, Arial, sans-serif; font-size: 12px; font-weight: normal; line-height: 20px;">Sincerly,<br />
-Yours <%= @service.car.company.name%> team </p>
+Yours <%= @service.user.agency.name%> team </p>

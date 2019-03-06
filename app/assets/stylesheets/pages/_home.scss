@@ -137,6 +137,10 @@ padding:2em; }
     margin: 5rem 8vw 0 8vw;
     overflow: hidden;
     position:relative;
+    .fas {
+      color: black;
+      font-size: xx-large;
+    }
   }
 }
 
@@ -145,6 +149,10 @@ padding:2em; }
     margin: 5rem 8vw 0 8vw;
     overflow: hidden;
     position:relative;
+      .fas {
+  color: black;
+  font-size: xx-large;
+    }
   }
 }
 
@@ -164,11 +172,6 @@ img {
     &:hover {
         cursor: pointer;
     }
-}
-
-.fas {
-  color: black;
-  font-size: xx-large;
 }
 
 .controls {
@@ -294,6 +297,7 @@ img {
 
 .car-description {
   width: 60vw;
+}
 
 .confirm-grid {
   margin: 1em 0;
@@ -301,7 +305,7 @@ img {
   background-color: $mpt-light;
   display: grid;
   grid-template-columns:1fr 2fr;
-  }
+}
 
 .confirm-grid > span {
     padding: 0.5em;

@@ -13,4 +13,14 @@ class ServiceMailer < ApplicationMailer
       subject:  "Transfer Confirmation"
     )
   end
+
+    def rating_mail(service)
+     @service = service
+
+    mail(
+      to:       @service.email,
+      subject:  "Rate your transfer experience"
+    )
+  end
+
 end

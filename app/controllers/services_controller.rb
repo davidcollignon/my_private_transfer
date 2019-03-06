@@ -77,9 +77,25 @@ class ServicesController < ApplicationController
    @service = Service.find(params[:id])
     if @service.update(service_params)
       flash[:notice] = "Transfer added"
+      send_rating_email_client
       redirect_to confirm_service_path
     else
       redirect_to confirm_service_path
+    end
+  end
+
+
+  def rating
+    @service = Service.find(params[:id])
+  end
+
+  def rating_update
+   @service = Service.find(params[:id])
+    if @service.update(service_params)
+      flash[:notice] = "Thanks for your rating"
+      redirect_to rating_service_path
+    else
+      redirect_to rating_service_path
     end
   end
 
@@ -92,6 +108,12 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit(:final_price, :flight_number, :driver_language, :number_hours_at_disposal, :number_of_passengers, :number_normal_luggage, :number_hand_luggage, :number_odd_luggage, :description_odd_luggage, :additional_info, :commission_rate, :title, :first_name, :last_name, :email, :mobile, :status)
+    params.require(:service).permit(:final_price, :flight_number, :driver_language, :number_hours_at_disposal, :number_of_passengers, :number_normal_luggage, :number_hand_luggage, :number_odd_luggage, :description_odd_luggage, :additional_info, :commission_rate, :title, :first_name, :last_name, :email, :mobile, :status, :rating)
+  end
+
+  def send_rating_email_client
+    @service = Service.find(params[:id])
+    ServiceMailer.rating_mail(@service).deliver_now
+    render :show
   end
 end

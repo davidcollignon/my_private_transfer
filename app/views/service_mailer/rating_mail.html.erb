@@ -1,0 +1,35 @@
+<p style="color: #444444; font-family: Helvetica, Arial, sans-serif; font-size: 12px; font-weight: normal; line-height: 20px;"> Dear customer, </p>
+
+<p style="color: #444444; font-family: Helvetica, Arial, sans-serif; font-size: 12px; font-weight: normal; line-height: 20px;">In order to continously improve our transfer service, we would be pleased if you could rate your following transfer: </p>
+
+<table style="width:500px; border:0; padding:0; color: #444444; font-family: Helvetica, Arial, sans-serif; font-size: 12px; font-weight: normal; line-height: 20px;">
+
+<tr>
+    <td style="padding:5px 0;">From :</td>
+    <td style="padding:5px 0;"><%=@service.pick_up_address %></td>
+</tr>
+<tr>
+  <td style="padding:5px 0;">On :</td>
+  <td style="padding:5px 0;"><%=@service.pick_up_date.strftime("%A, %d %b %Y")%></td>
+</tr>
+<tr>
+  <td style="padding:5px 0;">At :</td><td style="padding:5px 0;"><%=@service.pick_up_date.strftime("%Ih%M %P")%></td>
+</tr>
+<tr>
+  <td style="padding:5px 0;">Duration :</td>
+  <td style="padding:5px 0;"><%=pluralize @service.number_hours_at_disposal.round, "hour" %></td>
+</tr>
+</table>
+
+<p style="color: #444444; font-family: Helvetica, Arial, sans-serif; font-size: 12px; font-weight: normal; line-height: 20px;">
+  Please click on the link below to rate your transfer experience: <br />
+  <%= link_to "Rate your transfer Experience", rating_service_url(@service) %>
+</p>
+
+<p style="color: #444444; font-family: Helvetica, Arial, sans-serif; font-size: 12px; font-weight: normal; line-height: 20px;">
+  Thank you for contributing to our service improvement.<br />
+  %>
+</p>
+
+<p style="color: #444444; font-family: Helvetica, Arial, sans-serif; font-size: 12px; font-weight: normal; line-height: 20px;">Sincerly,<br />
+Yours <%= @service.user.agency.name%> team </p>

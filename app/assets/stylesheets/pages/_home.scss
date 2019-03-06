@@ -1,9 +1,9 @@
- body.home .navbar-wagon {
+body.home .navbar-wagon {
   position: absolute;
   width: 100%;
   top:0;
   background:transparent;
-box-shadow:none;
+  box-shadow:none;
  }
 
 body.home .navbar-wagon a {
@@ -78,9 +78,9 @@ padding:2em; }
 
 .top {
   margin: 1em 0;
-display: flex;
-justify-content: space-between;
-align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .flatpickr-calendar .flatpickr-day.selected { background-color:$mpt-sand;
@@ -88,6 +88,212 @@ align-items: center;
 
 
 .input-group-addon { color: #cfcfcf; background-color:#FFF; border:none; }
+
+.container-custom {
+}
+
+.intro-section {
+  text-align: center;
+  p {
+    margin: 0 0 5px;
+  }
+  margin-bottom: 10px;
+}
+
+.intro-cards {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  padding: 0vw 8vw;
+}
+
+.intro-card {
+  margin: 18px;
+  flex-basis: 25%;
+  border-radius: 10px;
+  background: #efecdc75;
+  box-shadow: 0px 2px 0px #8a6d3b26;
+  height: auto;
+  min-height: 20vh;
+}
+
+.intro-card-title {
+  padding: 20px;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.intro-card-text {
+  padding: 0 20px 15px;
+}
+
+.slider-outer-container {
+    background: #e6e6e67a;
+}
+
+
+@media (max-width: 769px) {
+  .slider-container {
+    margin: 5rem 8vw 0 8vw;
+    overflow: hidden;
+    position:relative;
+  }
+}
+
+@media (min-width: 770px) {
+  .slider-container {
+    margin: 5rem 8vw 0 8vw;
+    overflow: hidden;
+    position:relative;
+  }
+}
+
+
+img {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 100%;
+}
+
+.my-slider {
+    position: relative;
+}
+
+.slider-item {
+    position: relative;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.fas {
+  color: black;
+  font-size: xx-large;
+}
+
+.controls {
+    margin: 0;
+    padding: 0px 8px;
+    list-style: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 50%;
+    transform: translatey(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &:focus {
+        outline: none;
+    }
+
+    li:hover {
+        cursor: pointer;
+    }
+}
+
+.slider-card {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
+@media (max-width: 769px) {
+  .slider-card-agent {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+
+      .agent-name {
+        font-weight: bold;
+
+      }
+      .agent-agency {
+        border-bottom: 0.2rem solid;
+        padding-bottom: 1mm;
+      }
+  }
+
+  .slider-card-testimonial {
+  padding: 1rem;
+  font-size: large;
+  text-align: center;
+  }
+}
+
+@media (min-width: 770px), (max-width: 970px) {
+  .slider-card-agent {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      min-width: 20rem;
+      text-align: center;
+
+      .agent-name {
+        font-weight: bold;
+
+      }
+      .agent-agency {
+        border-bottom: 0.2rem solid;
+        padding-bottom: 1mm;
+      }
+  }
+
+  .slider-card-testimonial {
+    padding: 2rem;
+    font-size: large;
+    text-align: center;
+  }
+}
+
+@media (min-width: 971px) {
+  .slider-card-agent {
+      padding-top: 6rem;
+      padding-bottom: 3rem;
+      min-width: 20rem;
+      text-align: center;
+
+      .agent-name {
+        font-weight: bold;
+
+      }
+      .agent-agency {
+        border-bottom: 0.2rem solid;
+        padding-bottom: 1mm;
+      }
+  }
+
+  .slider-card-testimonial {
+    padding: 6rem;
+    padding-bottom: 3rem;
+    font-size: large;
+    text-align: center;
+  }
+}
+
+
+.section-car {
+  padding: 0vw 8vw;
+}
+
+.car-card-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.car-card-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+}
+
+.car-image {
+  width: 300px;
+}
+
+.car-description {
+  width: 60vw;
 
 .confirm-grid {
   margin: 1em 0;

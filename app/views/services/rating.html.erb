@@ -1,0 +1,39 @@
+<div class="container">
+
+<% if @service.rating == nil %>
+<p>Please rate your transfer for the following service:</p>
+<%end %>
+
+<div class="confirm-grid">
+
+  <span>Pick up date</span>
+  <span><%= @service.pick_up_date.strftime("%A, %d %b %Y") %></span>
+  <span>Pick up address</span>
+  <span><%= @service.pick_up_address %></span>
+  <span>Car Company</span>
+  <span><%= @service.car.company.name %></span>
+  <span>Language</span>
+  <span><%= @service.driver_language %></span>
+  <% if @service.rating != nil %>
+  <span>Your rating: </span>
+  <span><%if @service.rating == true %>
+    Service liked
+    <%elsif @service.rating == false %>
+    Service disliked
+    <%end%>
+  </span>
+  <%end%>
+
+</div>
+
+
+<% if @service.rating == nil %>
+<%= simple_form_for(@service, url: rating_update_service_path) do |f| %>
+<%= f.input :rating,  as: :radio_buttons, label: "Did you like your transfer?" %>
+<%= f.input :comment, as: :text, label: "Any other remark?" %>
+<%= f.submit "Submit your rating", class: "btn-primary btn-lg mw-100" %>
+<% end %>
+<%else%>
+
+<% end  %>
+</div>

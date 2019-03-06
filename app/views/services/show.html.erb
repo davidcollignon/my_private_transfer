@@ -37,17 +37,10 @@
        <p>Total Price with commission: <%=(@service.final_price)/100%> euros</p>
          <div class="card-buttons1">
            <p><%= link_to "Go to Dashboard", dashboard_path, class: "btn btn-primary" %></p>
-
+            <p><%=link_to "Export Invoice", send_invoice_email_client_service_path(@service), class: "btn btn-primary one"%></p>
          </div>
      </div>
 
-  <div class="row-price">
-    <p>Total Price without commission: <%=(@service.car.price_per_hour_cents * @hours.to_i)%> euros</p>
-    <p>Commission: <%=@service.commission_rate %> %</p>
-    <p>Total Price wiht commission: <%=(@service.final_price)/100%> euros</p>
-      <div class="card-buttons">
-        <p><%= link_to "Go to Dashboard", dashboard_path, class: "btn btn-primary one" %></p>
-      </div>
-  </div>
+
 </div>
 

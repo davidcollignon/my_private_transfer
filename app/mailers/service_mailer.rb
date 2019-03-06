@@ -10,7 +10,17 @@ class ServiceMailer < ApplicationMailer
 
     mail(
       to:       @service.car.company.email,
-      subject:  "Tranfer Confirmation"
+      subject:  "Transfer Confirmation"
     )
   end
+
+    def rating_mail(service)
+     @service = service
+
+    mail(
+      to:       @service.email,
+      subject:  "Rate your transfer experience"
+    )
+  end
+
 end

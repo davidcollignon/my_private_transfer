@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_05_111218) do
+ActiveRecord::Schema.define(version: 2019_03_06_095956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,12 +56,12 @@ ActiveRecord::Schema.define(version: 2019_03_05_111218) do
     t.string "status"
     t.jsonb "payment"
     t.string "flight_number"
-    t.string "driver_language"
+    t.string "driver_language", default: "English"
     t.integer "number_of_passengers"
-    t.integer "number_normal_luggage"
-    t.integer "number_odd_luggage"
+    t.integer "number_normal_luggage", default: 0
+    t.integer "number_odd_luggage", default: 0
     t.text "description_odd_luggage"
-    t.integer "number_hand_luggage"
+    t.integer "number_hand_luggage", default: 0
     t.text "additional_info"
     t.float "commission_rate", default: 0.0
     t.string "service_type"
@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 2019_03_05_111218) do
     t.string "last_name"
     t.string "email"
     t.string "mobile"
+    t.boolean "rating"
+    t.text "comment"
     t.index ["car_id"], name: "index_services_on_car_id"
     t.index ["user_id"], name: "index_services_on_user_id"
   end

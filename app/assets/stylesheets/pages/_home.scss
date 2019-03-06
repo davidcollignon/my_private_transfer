@@ -150,7 +150,6 @@ img {
 }
 
 .slider-item {
-    padding: 1.5rem .75rem;
     position: relative;
     &:hover {
         cursor: pointer;
@@ -183,33 +182,78 @@ img {
     }
 }
 
-.card {
-    text-align: center;
-    margin: 0 auto;
-    max-width: 200px;
-    color: #333;
-    background: white;
-    border-radius: 5px;
-    padding-bottom: .75rem;
-    font-family: sans-serif;
-    overflow: hidden;
-    box-shadow: 2px 2px rgba(black, .3);
-    position: relative;
-    &:before {
-        content: '.card';
-        position: absolute;
-        bottom: 0;
-        color: blue;
-    }
-    img {
-        margin-bottom: .25rem;
-    }
+.slider-card {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
 
-    h4 {
-        margin: 0 0 .25rem;
-    }
-    p {
-        margin: 0;
-        padding: 0 .5rem;
-    }
+@media (max-width: 769px) {
+  .slider-card-agent {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+
+      .agent-name {
+        font-weight: bold;
+
+      }
+      .agent-agency {
+        border-bottom: 0.2rem solid;
+        padding-bottom: 1mm;
+      }
+  }
+
+  .slider-card-testimonial {
+  padding: 1rem;
+  font-size: large;
+  text-align: center;
+  }
+}
+
+@media (min-width: 770px), (max-width: 970px) {
+  .slider-card-agent {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      min-width: 20rem;
+      text-align: center;
+
+      .agent-name {
+        font-weight: bold;
+
+      }
+      .agent-agency {
+        border-bottom: 0.2rem solid;
+        padding-bottom: 1mm;
+      }
+  }
+
+  .slider-card-testimonial {
+    padding: 2rem;
+    font-size: large;
+    text-align: center;
+  }
+}
+
+@media (min-width: 971px) {
+  .slider-card-agent {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+      min-width: 20rem;
+      text-align: center;
+
+      .agent-name {
+        font-weight: bold;
+
+      }
+      .agent-agency {
+        border-bottom: 0.2rem solid;
+        padding-bottom: 1mm;
+      }
+  }
+
+  .slider-card-testimonial {
+    padding: 6rem;
+    font-size: large;
+    text-align: center;
+  }
 }

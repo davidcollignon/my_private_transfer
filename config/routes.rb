@@ -9,9 +9,15 @@ Rails.application.routes.draw do
   resources :cars, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   resources :services do
+    member do
+      get 'confirm'
+    end
+    member do
+      patch 'confirm_update'
+    end
     resources :payments, only: [:new, :create]
-      member do
-        get 'send_invoice_email_client'
-      end
+    member do
+       get 'send_invoice_email_client'
+    end
   end
 end

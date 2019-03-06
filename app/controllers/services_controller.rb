@@ -51,7 +51,6 @@ class ServicesController < ApplicationController
     @hours = params[:service][:number_hours_at_disposal]
     @commission_rate = params[:service][:commission_rate]
     @amount = @car.price_per_hour_cents * @hours.to_i * (1 + (@commission_rate.to_f) / 100)
-    @service = Service.find(params[:id])
     @service.car = @car
     @service.final_price = @amount
     @service.status = "pending"
@@ -70,6 +69,20 @@ class ServicesController < ApplicationController
     redirect_to root_path
   end
 
+  def confirm
+    @service = Service.find(params[:id])
+  end
+
+  def confirm_update
+   @service = Service.find(params[:id])
+    if @service.update(service_params)
+      flash[:notice] = "Transfer added"
+      redirect_to confirm_service_path
+    else
+      redirect_to confirm_service_path
+    end
+  end
+  
   def send_invoice_email_client
     @service = Service.find(params[:id])
     PaymentMailer.creation_confirmation_client(@service).deliver_now

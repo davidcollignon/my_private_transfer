@@ -5,7 +5,7 @@ import { tns } from "tiny-slider/src/tiny-slider"
 
 
 flatpickr("#pick_up_date", {enableTime: true, weekNumbers: true});
-
+flatpickr("#service_pick_up_date", {enableTime: true, weekNumbers: true});
 initAutocomplete();
 
 

@@ -7,7 +7,8 @@ skip_before_action :authenticate_user!, only: [:index, :show, :new]
     session[:param_home] = {
                             :departure => params[:departure],
                             :hours => params[:hours],
-                            :pick_up_date => params[:pick_up_date]}
+                            :pick_up_date => params[:pick_up_date],
+                           }
   end
 
   def show

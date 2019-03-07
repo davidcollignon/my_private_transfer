@@ -5,56 +5,43 @@ body.home .navbar-wagon {
   background:transparent;
   box-shadow:none;
  }
-
 body.home .navbar-wagon a {
 color: #FFF;
 }
-
 ul.menu-search {
   padding: 0; margin: 0;
   list-style-type:none;
   display: flex;
   justify-content: space-around;
 }
-
 ul.menu-search li {
-
 }
-
 ul.menu-search li a {
   color: #FFF;
  }
-
 ul.menu-search li a:hover { text-decoration: none; opacity: 0.5; }
 ul.menu-search li  { opacity: 0.5;   padding:20px;  }
 ul.menu-search li.active  { opacity: 1;  }
 .mw-100 { width: 100%; }
-
 .search form { padding: 0 2em 2em 2em; }
-
 .banner {
   background-image:url(image_path('mpt-bg.jpg'));
   background-size:cover;
   background-position: center center;
-
   height: 100vh;
   /* height: calc(100vh - 70px);*/
   align-items: center;
   justify-content: space-around;
   display:flex;
-
 }
-
 @media (max-width: 500px) {
   .banner {
 flex-direction: column;
   }
 }
-
 .banner .info { display: flex;
 align-items:center;
 padding:2em; }
-
 .info h1 {
   margin: 0;
   font-size:3em;
@@ -63,35 +50,26 @@ padding:2em; }
   text-align: center;
   font-weight: 100;
 }
-
 .search {
   background-color: rgba(0,0,0,0.2);
   box-shadow: 1px 2px rgba(0, 0, 0, 0.2);
-
 }
-
 .index h1 {
   font-size:1.6em;
   margin:0;
   text-transform: uppercase;
 }
-
 .top {
   margin: 1em 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .flatpickr-calendar .flatpickr-day.selected { background-color:$mpt-sand;
   border-color:$mpt-light;  }
-
-
 .input-group-addon { color: #cfcfcf; background-color:#FFF; border:none; }
-
 .container-custom {
 }
-
 .intro-section {
   text-align: center;
   p {
@@ -99,14 +77,12 @@ padding:2em; }
   }
   margin-bottom: 10px;
 }
-
 .intro-cards {
   margin-top: 10px;
   display: flex;
   justify-content: center;
   padding: 0vw 8vw;
 }
-
 .intro-card {
   margin: 18px;
   flex-basis: 25%;
@@ -116,21 +92,17 @@ padding:2em; }
   height: auto;
   min-height: 20vh;
 }
-
 .intro-card-title {
   padding: 20px;
   font-size: medium;
   font-weight: bold;
 }
-
 .intro-card-text {
   padding: 0 20px 15px;
 }
-
 .slider-outer-container {
     background: #e6e6e67a;
 }
-
 
 @media (max-width: 769px) {
   .slider-container {
@@ -156,17 +128,14 @@ padding:2em; }
   }
 }
 
-
 img {
     display: inline-block;
     vertical-align: top;
     max-width: 100%;
 }
-
 .my-slider {
     position: relative;
 }
-
 .slider-item {
     position: relative;
     &:hover {
@@ -189,81 +158,68 @@ img {
     &:focus {
         outline: none;
     }
-
     li:hover {
         cursor: pointer;
     }
 }
-
 .slider-card {
   padding-left: 6rem;
   padding-right: 6rem;
 }
-
 @media (max-width: 769px) {
   .slider-card-agent {
     padding-top: 1rem;
     padding-bottom: 1rem;
     text-align: center;
-
       .agent-name {
         font-weight: bold;
-
       }
       .agent-agency {
         border-bottom: 0.2rem solid;
         padding-bottom: 1mm;
       }
   }
-
   .slider-card-testimonial {
   padding: 1rem;
   font-size: large;
   text-align: center;
   }
 }
-
 @media (min-width: 770px), (max-width: 970px) {
   .slider-card-agent {
       padding-top: 2rem;
       padding-bottom: 2rem;
       min-width: 20rem;
       text-align: center;
-
       .agent-name {
         font-weight: bold;
-
       }
       .agent-agency {
         border-bottom: 0.2rem solid;
         padding-bottom: 1mm;
       }
   }
-
   .slider-card-testimonial {
     padding: 2rem;
     font-size: large;
     text-align: center;
   }
 }
-
 @media (min-width: 971px) {
   .slider-card-agent {
       padding-top: 6rem;
       padding-bottom: 3rem;
       min-width: 20rem;
       text-align: center;
-
+    
       .agent-name {
         font-weight: bold;
-
       }
       .agent-agency {
         border-bottom: 0.2rem solid;
         padding-bottom: 1mm;
       }
   }
-
   .slider-card-testimonial {
     padding: 6rem;
     padding-bottom: 3rem;
@@ -272,6 +228,44 @@ img {
   }
 }
 
+.partners-logos {
+  margin-top: 6vh;
+  display: flex;
+  align-items: center;
+  opacity: 0.6;
+  flex-wrap:wrap;
+}
+
+.logo {
+  flex: 1 16%;
+  padding:18px;
+}
+
+
+.logo img {
+  height: auto;
+  width:200px;
+  display:block;
+  margin:0 auto;
+}
+
+.logo_one {
+  opacity: 0.8;
+}
+
+.logo_six {
+  opacity: 0.6;
+}
+
+.logo_four {
+  opacity: 0.8;
+}
+
+@media (max-width: 769px)  {
+  .logo {
+    flex: 1 33%;
+  }
+}
 
 .section-car {
   padding: 0vw 8vw;

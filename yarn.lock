@@ -2782,6 +2782,11 @@ globule@^1.0.0:
     lodash "~4.17.10"
     minimatch "~3.0.2"
 
+google-address-autocomplete@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/google-address-autocomplete/-/google-address-autocomplete-1.4.0.tgz#e420bd7e03ba88724225c0fc9b00360aef948cc6"
+  integrity sha512-pxnqd2eESK/d9oqck+E13XkSsIfdGLF2uQ2ThjjPsa0phuBn3tmUTW8vQrw+2UHKNF+PiRv10vuSQqNA1aSZfQ==
+
 graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
   version "4.1.15"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.15.tgz#ffb703e1066e8a0eeaa4c8b80ba9253eeefbfb00"

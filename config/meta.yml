@@ -1,5 +1,5 @@
 meta_product_name: "My Private Transfer"
 meta_title: "My Private Transfer - The Best Deluxe Chauffered Services"
 meta_description: "No waiting, no requests, only instant booking of the best deluxe chauffered services in France"
-meta_image: "meta.jpg" # should exist in `app/assets/images/`
-twitter_account: "@@MyPrivateTrans1"   # required for Twitter Cards
+meta_image: "meta.png" # should exist in `app/assets/images/`
+twitter_account: "@MyPrivateTrans1"   # required for Twitter Cards

@@ -1,12 +1,15 @@
 import "bootstrap";
-import { initAutocomplete } from '../plugins/init_autocomplete';
 import flatpickr from "flatpickr";
-import { tns } from "tiny-slider/src/tiny-slider"
+import { tns } from "tiny-slider/src/tiny-slider";
+import AddressAutocomplete from 'google-address-autocomplete'
 
 
 flatpickr("#pick_up_date", {enableTime: true, weekNumbers: true});
 flatpickr("#service_pick_up_date", {enableTime: true, weekNumbers: true});
-initAutocomplete();
+const options = {
+  types:['geocode', 'establishment'],
+}
+new AddressAutocomplete('#departure' && '#service_pick_up_address', options, result => console.log(result));
 
 
 const slider = tns({

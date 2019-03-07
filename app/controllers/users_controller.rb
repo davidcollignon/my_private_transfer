@@ -11,7 +11,6 @@ class UsersController < ApplicationController
     @confirmed_services = @services.where(status: ["paid", "done"])
     @delivered_services = @services.where(status: ["done"])
     @pending_delivery_services = @services.where(status: ["paid"])
-  end
 
     @months_hash = { 1 => "January",
                      2 => "February",

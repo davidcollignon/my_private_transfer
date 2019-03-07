@@ -1,0 +1,68 @@
+
+<div class="recap">
+
+  <div class="grid-show">
+    <div class="show-title">
+
+      <h2><%= @service.first_name  %> <%= @service.last_name  %></h2>
+
+    </div>
+    <div class="show-info">
+
+      <div class="grid-info">
+        <span class="labelgrid"><i class="fas fa-map-marker-alt"></i></span>
+        <span><%=@service.pick_up_address %></span>
+        <span class="labelgrid"><i class="fas fa-calendar-alt"></i></span>
+        <span><%=@service.pick_up_date %></span>
+        <span class="labelgrid"><i class="fas fa-plane-arrival"></i></span>
+        <span><%=@service.driver_language %></span>
+        <span class="labelgrid"><i class="fas fa-car"></i></span>
+        <span><%=@service.car.brand %></span>
+        <span class="labelgrid"><i class="fas fa-users"></i></span>
+        <span><%= @service.number_of_passengers %></span>
+        <span class="labelgrid"><i class="fas fa-suitcase"></i></span>
+        <span><%= @service.number_hand_luggage %></span>
+      </div>
+    </div>
+
+    <div class="show-pic hidden-xs">
+      <%= image_tag "mercedes.jpg" %>
+    </div>
+
+    <div class="show-price">
+      <div class="show-price-box">
+    <h2><%= humanized_money_with_symbol(@service.final_price/100) %>€</h2>
+
+      <p class="small">Price without commission: <%=(@service.final_price)/(100+@service.commission_rate)%> €<br />
+      Price with <%=@service.commission_rate %>% commission: <%=(@service.final_price)/100%> euros</p>
+
+<% if @service.status == "pending" %>
+      <%= form_tag service_payments_path(@service) do %>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+     data-name="Service"
+     data-email="<%= current_user.email %>"
+     data-description="Service <%= @service.car_id %>"
+     data-amount="<%= @service.final_price_cents / 100 %>"
+     data-currency="<%= @service.final_price.currency %>">
+     </script>
+<% end %>
+<% end %>
+ </div>
+
+    </div>
+    <div class="show-edit">
+<% if @service.status == "pending" %>
+<p><%= link_to "Edit", edit_service_path(@service), method: :get, class: "btn btn-secondary"  %></p>
+                 <p><%= link_to "Cancel", service_path(@service),
+                   method: :delete,
+                   data: { confirm: "Are you sure?" },
+                   class: "btn btn-secondary" %></p>
+
+<% else %>
+<p><%= link_to "Go to Dashboard", dashboard_path, class: "btn btn-secondary" %></p>
+            <p><%=link_to "Export Invoice", send_invoice_email_client_service_path(@service), class: "btn btn-secondary"%></p>
+<% end %>
+    </div>
+  </div>
+</div>

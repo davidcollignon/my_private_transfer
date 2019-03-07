@@ -11,7 +11,6 @@ const options = {
   types:['geocode', 'establishment'],
 }
 
-
 if (document.getElementById('departure')){
 new AddressAutocomplete('#departure' , options, result => console.log(result));
 }else if (document.getElementById('service_pick_up_address')){
@@ -23,7 +22,7 @@ const slider = tns({
     container: '.my-slider',
     items: 1,
     slideBy: 'page',
-    nav: false,
+    nav: true,
     autoplay: false,
     speed: 400,
     autoplayButtonOutput: false,

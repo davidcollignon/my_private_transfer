@@ -42,9 +42,12 @@ ul.menu-search li.active  { opacity: 1;  }
 flex-direction: column;
   }
 }
-.banner .info { display: flex;
-align-items:center;
-padding:2em; }
+.banner .info {
+  display: flex;
+  align-items:center;
+  padding:2em;
+}
+
 .info h1 {
   margin: 0;
   font-size:3em;
@@ -53,6 +56,7 @@ padding:2em; }
   text-align: center;
   font-weight: 100;
 }
+
 .search {
   background-color: rgba(0,0,0,0.2);
   box-shadow: 1px 2px rgba(0, 0, 0, 0.2);
@@ -288,6 +292,7 @@ img {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 2em
 }
 
 .car-card-right {
@@ -295,6 +300,7 @@ img {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap-reverse;
+  margin-bottom: 2em;
 }
 
 .car-image {

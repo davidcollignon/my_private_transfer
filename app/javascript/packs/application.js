@@ -10,7 +10,12 @@ flatpickr("#service_pick_up_date", {enableTime: true, weekNumbers: true});
 const options = {
   types:['geocode', 'establishment'],
 }
-// new AddressAutocomplete('#departure' && '#service_pick_up_address', options, result => console.log(result));
+
+if (document.getElementById('departure')){
+new AddressAutocomplete('#departure' , options, result => console.log(result));
+}else if (document.getElementById('service_pick_up_address')){
+new AddressAutocomplete('#service_pick_up_address', options, result => console.log(result));
+}
 
 
 const slider = tns({

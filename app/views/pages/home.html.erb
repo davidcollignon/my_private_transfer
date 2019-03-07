@@ -213,5 +213,10 @@
 
 
 <!-- Include Google Maps JS API -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%=ENV['GOOGLE_MAPS_KEY']%>"></script>
+
+
+
+ <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAPS_KEY']%>&libraries=places&callback=initMap"
+        async defer></script>
+
 

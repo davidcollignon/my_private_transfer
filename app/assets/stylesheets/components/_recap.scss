@@ -1,0 +1,101 @@
+
+.recap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-show {
+  display: grid;
+  grid-gap: 1em 0;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+  grid-template-rows: 1fr;
+  box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.2);
+  padding: 1em;
+  border-radius: 2px;
+  }
+
+
+.show-title {
+  grid-column: 1 / span 3;
+
+}
+
+.show-edit {
+grid-column: 1 / span 3;
+display: flex;
+justify-content: flex-end;
+
+}
+
+.show-pic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button.stripe-button-el {
+  width: 100%;
+  border: 0;
+  background-image: none;
+}
+
+button.stripe-button-el:hover {
+  opacity: 0.6;
+}
+
+button.stripe-button-el span {
+  border-radius: 0;
+  background: $mpt-sand;
+  box-shadow: none;
+  text-shadow: none;
+  text-transform: uppercase;
+  border:none;
+}
+
+.show-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.show-price-box {
+  padding: 2em;
+  background-color: $mpt-dark;
+  color: #FFF;
+  border-radius: 2px;
+
+}
+
+.show-info {
+
+}
+
+  .grid-info {
+    display: grid;
+grid-template-columns:1fr 8fr;
+  }
+
+  .grid-info > span {
+    padding: 0 0 1em 0;
+
+  }
+  .grid-info > span.labelgrid {
+    color:#E6E6E6;
+  }
+
+  @media (max-width: 500px) {
+    .grid-show {
+    display: block;
+    }
+
+    .recap {
+      display: block;
+    }
+
+    .show-price {
+      display: block;
+    }
+  }

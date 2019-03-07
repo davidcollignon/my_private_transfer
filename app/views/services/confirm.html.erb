@@ -17,7 +17,7 @@
 
 </div>
 
-<%= simple_form_for(@service, url: confirm_update_service_path) do |f| %>
+<%= simple_form_for(@service, url: confirm_update_service_path, remote: true) do |f| %>
 
 <%= f.input :status, as: :hidden, input_html: { value: "done"} %>
 <% if @service.status != "done" %>

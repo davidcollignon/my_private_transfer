@@ -78,7 +78,7 @@ class ServicesController < ApplicationController
     if @service.update(service_params)
       flash[:notice] = "Transfer added"
       ServiceMailer.rating_mail(@service).deliver_now
-      redirect_to confirm_service_path
+     redirect_to confirm_service_path
     else
       redirect_to confirm_service_path
     end

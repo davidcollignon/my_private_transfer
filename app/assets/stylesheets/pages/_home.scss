@@ -103,12 +103,31 @@ padding:2em; }
 .slider-outer-container {
     background: #e6e6e67a;
 }
-.slider-container {
-    padding: 2rem 3rem;
+
+@media (max-width: 769px) {
+  .slider-container {
     margin: 5rem 8vw 0 8vw;
     overflow: hidden;
     position:relative;
+    .fas {
+      color: black;
+      font-size: xx-large;
+    }
+  }
 }
+
+@media (min-width: 770px) {
+  .slider-container {
+    margin: 5rem 8vw 0 8vw;
+    overflow: hidden;
+    position:relative;
+      .fas {
+  color: black;
+  font-size: xx-large;
+    }
+  }
+}
+
 img {
     display: inline-block;
     vertical-align: top;
@@ -123,10 +142,7 @@ img {
         cursor: pointer;
     }
 }
-.fas {
-  color: black;
-  font-size: xx-large;
-}
+
 .controls {
     margin: 0;
     padding: 0px 8px;
@@ -192,9 +208,10 @@ img {
 @media (min-width: 971px) {
   .slider-card-agent {
       padding-top: 6rem;
-      padding-bottom: 6rem;
+      padding-bottom: 3rem;
       min-width: 20rem;
       text-align: center;
+    
       .agent-name {
         font-weight: bold;
       }
@@ -205,17 +222,10 @@ img {
   }
   .slider-card-testimonial {
     padding: 6rem;
+    padding-bottom: 3rem;
     font-size: large;
     text-align: center;
   }
-}
-.section-car {
-  padding: 0vw 8vw;
-}
-.car-card {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
 }
 
 .partners-logos {
@@ -225,34 +235,72 @@ img {
   opacity: 0.6;
   flex-wrap:wrap;
 }
+
 .logo {
-flex: 1 16%;
-padding:18px;
+  flex: 1 16%;
+  padding:18px;
 }
 
 
 .logo img {
-height: auto;
-width:200px;
-display:block;
-margin:0 auto;
+  height: auto;
+  width:200px;
+  display:block;
+  margin:0 auto;
 }
 
 .logo_one {
-opacity: 0.8;
+  opacity: 0.8;
 }
 
 .logo_six {
-opacity: 0.6;
+  opacity: 0.6;
 }
 
 .logo_four {
-opacity: 0.8;
+  opacity: 0.8;
 }
 
 @media (max-width: 769px)  {
   .logo {
     flex: 1 33%;
- }
+  }
+}
 
+.section-car {
+  padding: 0vw 8vw;
+}
+
+.car-card-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.car-card-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+}
+
+.car-image {
+  width: 300px;
+}
+
+.car-description {
+  width: 60vw;
+}
+
+.confirm-grid {
+  margin: 1em 0;
+  padding:2em;
+  background-color: $mpt-light;
+  display: grid;
+  grid-template-columns:1fr 2fr;
+}
+
+.confirm-grid > span {
+    padding: 0.5em;
 }

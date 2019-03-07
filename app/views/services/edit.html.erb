@@ -11,32 +11,40 @@
 <div class="col-xs-12 col-sm-6">
   <%= f.input :driver_language, label: "Driver's Language"%>
 </div>
-<div class="col-xs-12 col-sm-6">
-  <%= f.input :number_hours_at_disposal, label: "How many hours you want to book the service?"%>
 </div>
+
+<h2>Pick-up Details</h2>
+<div class="row ">
+  <div class="col-xs-12 col-sm-6">
+     <%= f.label :label, label:"Pick-up date" %> <br>
+     <%= f.input_field :pick_up_date, label: "Pick-up-date" %>
+  </div>
+  <div class="col-xs-12 col-sm-6">
+    <%= f.input :pick_up_address, label: "Depature address" %>
+  </div>
+  <div class="col-xs-12 col-sm-6">
+     <%= f.input :number_hours_at_disposal, label: "How many hours you want to book the service?"%>
+  </div>
 </div>
 
 <h2>Travel information</h2>
 <div class="row ">
 
 
-  <div class="col-xs-12 col-sm-6">
+   <div class="col-xs-12 col-sm-6">
 
-  <%= f.input :number_of_passengers, collection: 1..10, label: "Number of passengers" %>
+  <%= f.input :number_of_passengers, collection: 1..@service.car.passenger_capacity, label: "Number of passengers" %>
 </div>
 <div class="col-xs-12 col-sm-6">
-  <%= f.input :number_normal_luggage, collection: 0..10, label: "Luggage" %>
+  <%= f.input :number_normal_luggage, collection: 0..@service.car.luggage_capacity, label: "Luggage" %>
 </div>
 <div class="col-xs-12 col-sm-6">
-  <%= f.input :number_hand_luggage, collection: 0..10, label: "Hand Luggage" %>
+  <%= f.input :number_hand_luggage, collection: 0..@service.car.passenger_capacity, label: "Hand Luggage" %>
 </div>
 <div class="col-xs-12 col-sm-6">
-  <%= f.input :number_odd_luggage, collection: 0..10, label: "Odd Luggage" %>
-
-
+  <%= f.input :number_odd_luggage, collection: 0..2, label: "Odd Luggage" %>
 </div>
 <div class="col-xs-12 col-sm-12">
-
   <%= f.input :description_odd_luggage, label: "Description of odd luggage"%>
 </div>
 <div class="col-xs-12 col-sm-12">
@@ -45,8 +53,9 @@
 </div>
 <div class="row">
 <div class="col-xs-12 col-sm-6">
-  <%= f.input :commission_rate, collection: 1..100, label: "Commission" %>
-</div></div>
+  <%= f.input :commission_rate, as: :string, label: "Commission (in %)" %>
+</div>
+</div>
 
 <h2>Main contact</h2>
 <div class="row">
@@ -77,3 +86,6 @@
  <% end %>
 
 </div>
+
+ <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAPS_KEY']%>&libraries=places&callback=initMap"
+        async defer></script>

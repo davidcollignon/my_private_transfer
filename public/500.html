@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
+  <title>Something went wrong</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   .rails-default-error-page {
@@ -23,7 +23,7 @@
     border-right-color: #999;
     border-left-color: #999;
     border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
+    border-top: #B09D61 solid 4px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
     background-color: white;
@@ -33,7 +33,6 @@
 
   .rails-default-error-page h1 {
     font-size: 100%;
-    color: #730E15;
     line-height: 1.5em;
   }
 
@@ -51,6 +50,17 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  .button-customer {
+    padding: 4px 21px;
+    border-radius: 4px;
+    background: #B09D61;
+    font-size: large;
+    margin: 10px;
+    color: #efefef;
+    text-decoration: none;
+  }
+
   </style>
 </head>
 
@@ -58,9 +68,10 @@
   <!-- This file lives in public/500.html -->
   <div class="dialog">
     <div>
-      <h1>We're sorry, but something went wrong.</h1>
+      <h1>Something is definitely wrong.</h1>
+      <p>We can't find the page you're looking for.</p>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <p><a href="/" class="button-customer">Home</a></p>
   </div>
 </body>
 </html>

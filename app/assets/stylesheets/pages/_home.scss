@@ -68,8 +68,13 @@ padding:2em; }
 .flatpickr-calendar .flatpickr-day.selected { background-color:$mpt-sand;
   border-color:$mpt-light;  }
 .input-group-addon { color: #cfcfcf; background-color:#FFF; border:none; }
-.container-custom {
+
+
+.section-1 {
+  margin-top: 7vh;
 }
+
+
 .intro-section {
   text-align: center;
   p {
@@ -78,7 +83,7 @@ padding:2em; }
   margin-bottom: 10px;
 }
 .intro-cards {
-  margin-top: 10px;
+  margin-top: 8vh;
   display: flex;
   justify-content: center;
   padding: 0vw 8vw;
@@ -205,13 +210,14 @@ img {
     text-align: center;
   }
 }
+
 @media (min-width: 971px) {
   .slider-card-agent {
       padding-top: 6rem;
       padding-bottom: 3rem;
       min-width: 20rem;
       text-align: center;
-    
+
       .agent-name {
         font-weight: bold;
       }
@@ -228,6 +234,11 @@ img {
   }
 }
 
+.logo-section {
+  padding: 0vw 8vw 0vw 9vw;
+  margin-bottom: -8vh;
+}
+
 .partners-logos {
   margin-top: 6vh;
   display: flex;
@@ -235,6 +246,7 @@ img {
   opacity: 0.6;
   flex-wrap:wrap;
 }
+
 
 .logo {
   flex: 1 16%;
@@ -249,15 +261,15 @@ img {
   margin:0 auto;
 }
 
-.logo_one {
+.one {
   opacity: 0.8;
 }
 
-.logo_six {
+.six {
   opacity: 0.6;
 }
 
-.logo_four {
+.four {
   opacity: 0.8;
 }
 

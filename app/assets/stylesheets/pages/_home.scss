@@ -5,6 +5,9 @@ body.home .navbar-wagon {
   background:transparent;
   box-shadow:none;
  }
+ .section {
+  min-height: calc(100vh - 140px);
+ }
 body.home .navbar-wagon a {
 color: #FFF;
 }
@@ -304,3 +307,5 @@ img {
 .confirm-grid > span {
     padding: 0.5em;
 }
+
+

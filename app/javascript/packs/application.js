@@ -22,7 +22,7 @@ const slider = tns({
     container: '.my-slider',
     items: 1,
     slideBy: 'page',
-    nav: true,
+    nav: false,
     autoplay: false,
     speed: 400,
     autoplayButtonOutput: false,

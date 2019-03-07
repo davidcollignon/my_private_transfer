@@ -1,5 +1,5 @@
 import "bootstrap";
-import { initAutocomplete } from '../plugins/init_autocomplete';
+import { initializeAutocomplete } from '../plugins/init_autocomplete';
 import flatpickr from "flatpickr";
 import { tns } from "tiny-slider/src/tiny-slider"
 

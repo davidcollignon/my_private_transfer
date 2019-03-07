@@ -2,63 +2,61 @@
 <%= simple_form_for (@service) do |f| %>
 
 
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Travel information</h3>
+  </div>
+<div class="panel-body">
+
 <div class="row ">
-<div class="col-xs-12 col-sm-6">
-  <%= f.input :flight_number, label: "Flight Number" %>
-</div>
-<div class="col-xs-12 col-sm-6">
-  <%= f.input :driver_language, label: "Driver's Language"%>
-
-</div>
-</div>
-
-<h2>Travel information</h2>
-<div class="row ">
-
-
   <div class="col-xs-12 col-sm-6">
+    <%= f.input :number_of_passengers, collection: 1..@car.passenger_capacity, label: "Number of passengers" %>
+  </div>
 
-  <%= f.input :number_of_passengers, collection: 1..@car.passenger_capacity, label: "Number of passengers" %>
-</div>
 <div class="col-xs-12 col-sm-6">
   <%= f.input :number_normal_luggage, collection: 0..@car.luggage_capacity, label: "Luggage" %>
 </div>
-<div class="col-xs-12 col-sm-6">
-  <%= f.input :number_hand_luggage, collection: 0..@car.passenger_capacity, label: "Hand Luggage" %>
-</div>
-<div class="col-xs-12 col-sm-6">
-  <%= f.input :number_odd_luggage, collection: 0..2, label: "Odd Luggage" %>
 
-
-</div>
-<div class="col-xs-12 col-sm-12">
-
-  <%= f.input :description_odd_luggage, label: "Description of odd luggage"%>
-</div>
 <div class="col-xs-12 col-sm-12">
   <%= f.input :additional_info, label: "Additional Information"%>
 </div>
-</div>
-<div class="row">
-<div class="col-xs-12 col-sm-6">
-  <%= f.input :commission_rate, as: :string, label: "Commission (in %)" %>
-</div></div>
 
-<h2>Passenger main contact</h2>
+  </div>
+</div>
+</div>
+
+
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Passenger main contact</h3>
+  </div>
+<div class="panel-body">
+
 <div class="row">
-<div class="col-xs-12 col-sm-6">
+<div class="col-xs-12 col-sm-3">
   <%= f.input :title, label: "Title", collection: [['Mrs.', '0'], ['Mr.', '1']] %>
 </div>
 </div>
+
 <div class="row">
 <div class="col-xs-12 col-sm-6">
 <%= f.input :first_name, label: "First name" %>
 </div>
+
 <div class="col-xs-12 col-sm-6">
 <%= f.input :last_name, label: "Last name" %>
 </div>
+
 </div>
 
+<div class="row">
+<div class="col-xs-12 col-sm-6">
+  <%= f.input :driver_language, label: "Driver's Language"%>
+</div>
+</div>
 <div class="row">
 <div class="col-xs-12 col-sm-6">
 <%= f.input :email, label: "Email" %>
@@ -68,6 +66,24 @@
 </div>
 </div>
 
+</div>
+</div>
+
+
+
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Your fees</h3>
+  </div>
+<div class="panel-body">
+<div class="row">
+<div class="col-xs-12 col-sm-4">
+  <%= f.input :commission_rate, as: :string, label: "Commission (in %)" %>
+</div>
+</div>
+</div>
+</div>
+
   <%= f.input :car, as: :hidden, input_html: { value: params[:car_id]} %>
-  <%= f.submit "Continue", class: "btn btn-primary" %>
+  <%= f.submit "Continue", class: "btn btn-primary mw-100" %>
  <% end %>

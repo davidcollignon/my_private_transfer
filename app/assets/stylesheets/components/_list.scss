@@ -10,6 +10,7 @@ background-color: #FFF;
 padding: 2%;
 flex: 1 21%;
 position: relative;
+border:1px solid #FFF;
  }
 
 .price { position: absolute; top:1em; right: 1em;
@@ -29,7 +30,7 @@ bottom: 0;
  }
 
  .car:hover {
-  opacity: 0.5;
+  border:1px solid $mpt-sand;
  }
 
 .cars img {

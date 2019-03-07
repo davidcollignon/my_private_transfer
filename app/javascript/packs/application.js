@@ -6,17 +6,18 @@ import AddressAutocomplete from 'google-address-autocomplete'
 
 flatpickr("#pick_up_date", {enableTime: true, weekNumbers: true});
 flatpickr("#service_pick_up_date", {enableTime: true, weekNumbers: true});
+
 const options = {
   types:['geocode', 'establishment'],
 }
-new AddressAutocomplete('#departure' && '#service_pick_up_address', options, result => console.log(result));
+// new AddressAutocomplete('#departure' && '#service_pick_up_address', options, result => console.log(result));
 
 
 const slider = tns({
     container: '.my-slider',
     items: 1,
     slideBy: 'page',
-    nav: false,
+    nav: true,
     autoplay: false,
     speed: 400,
     autoplayButtonOutput: false,

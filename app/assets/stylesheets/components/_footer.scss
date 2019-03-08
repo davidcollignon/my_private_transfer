@@ -1,11 +1,19 @@
 .footer {
-  background-color:#fcfcfc;
+
+background: linear-gradient(94deg, rgba(244,244,244,1) 0%, rgba(244,244,244,1) 28%, rgba(222,209,193,1) 100%);
+
   display:flex;
   align-items: center;
   justify-content: space-around;
   font-size:0.8em;
   padding: 2em 8em 2em 8em;
   margin-top:6em;
+}
+
+@media (max-width: 550px) {
+.footer {
+  flex-direction: column;
+  }
 }
 
 .footer > img {

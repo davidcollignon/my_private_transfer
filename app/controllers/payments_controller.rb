@@ -3,6 +3,13 @@ class PaymentsController < ApplicationController
 
   def new
     @service = Service.find(params[:service_id])
+    @car = @service.car
+    @hours = @service.number_hours_at_disposal
+    @commission_rate = @service.commission_rate
+    @amount = @car.price_per_hour_cents * @hours.to_i * (1 + (@commission_rate.to_f) / 100)
+    @service.car = @car
+    @service.user = current_user
+    @service.final_price = @amount
   end
 
   def create

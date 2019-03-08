@@ -13,7 +13,7 @@
 
       <div class="car">
         <div class="price">
-          <h4><%= car.price_per_hour %>€</h4>
+          <h4><%= car.price_per_hour * session[:param_home][:hours].to_i %>€</h4>
         </div>
         <div class="pic">
           <img src="<%= car.image %>" alt="">

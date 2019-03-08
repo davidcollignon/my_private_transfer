@@ -30,9 +30,10 @@ caravelle_volkswagen = Car.new(
     luggage_capacity: 9,
     price_per_km_cents: 295.85,
     price_per_hour_cents: 7700,
-    company: Company.last
+    company: Company.last,
+    image: "caravelle_volkswagen_pub.jpg"
     )
-car.save!
+caravelle_volkswagen.save!
 
 mercedes_sprinter_8_seater = Car.new(
     brand: "Mercedes Sprinter 8 seater",
@@ -41,9 +42,10 @@ mercedes_sprinter_8_seater = Car.new(
     luggage_capacity: 8,
     price_per_km_cents: 298.85,
     price_per_hour_cents: 8537,
-    company: Company.last
+    company: Company.last,
+    image: "mercedes_sprinter_pub.jpg"
     )
-car.save!
+mercedes_sprinter_8_seater.save!
 
 mercedes_v_class_5_seater = Car.new(
     brand: "Mercedes V Class Exclusive 5 seater",
@@ -52,9 +54,10 @@ mercedes_v_class_5_seater = Car.new(
     luggage_capacity: 7,
     price_per_km_cents: 298.85,
     price_per_hour_cents: 8537,
-    company: Company.last
+    company: Company.last,
+    image: "mercedes_v_class_pub.jpg"
     )
-car.save!
+mercedes_v_class_5_seater.save!
 
 
 mercedes_e_class = Car.new(
@@ -64,9 +67,10 @@ mercedes_e_class = Car.new(
     luggage_capacity: 2,
     price_per_km_cents: 302.85,
     price_per_hour_cents: 9275,
-    company: Company.last
+    company: Company.last,
+    image: "mercedes_e_class_pub.jpg"
     )
-car.save!
+mercedes_e_class.save!
 
 mercedes_v_class = Car.new(
     brand: "Mercedes V Class",
@@ -75,9 +79,10 @@ mercedes_v_class = Car.new(
     luggage_capacity: 7,
     price_per_km_cents: 302.85,
     price_per_hour_cents: 9275,
-    company: Company.last
+    company: Company.last,
+    image: "mercedes_v_class_pub.jpg"
     )
-car.save!
+mercedes_v_class.save!
 
 mercedes_e_premium = Car.new(
     brand: "Mercedes E Class Premium",
@@ -86,9 +91,10 @@ mercedes_e_premium = Car.new(
     luggage_capacity: 2,
     price_per_km_cents: 303.85,
     price_per_hour_cents: 9470,
-    company: Company.last
+    company: Company.last,
+    image: "mercedes_e_class_pub.jpg"
     )
-car.save!
+mercedes_e_premium.save!
 
 mercedes_s_class = Car.new(
     brand: "Mercedes S Class",
@@ -97,9 +103,10 @@ mercedes_s_class = Car.new(
     luggage_capacity: 2,
     price_per_km_cents: 304.85,
     price_per_hour_cents: 9887,
-    company: Company.last
+    company: Company.last,
+    image: "mercedes_s_class_pub.jpg"
     )
-car.save!
+mercedes_s_class.save!
 
 mercedes_sprinter_16_seater = Car.new(
     brand: "Mercedes Sprinter 16 seater",
@@ -108,9 +115,10 @@ mercedes_sprinter_16_seater = Car.new(
     luggage_capacity: 18,
     price_per_km_cents: 308.85,
     price_per_hour_cents: 10225,
-    company: Company.last
+    company: Company.last,
+    image: "mercedes_sprinter_pub.jpg"
     )
-car.save!
+mercedes_sprinter_16_seater.save!
 
 
 

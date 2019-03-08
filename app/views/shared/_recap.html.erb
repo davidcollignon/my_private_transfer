@@ -21,7 +21,7 @@
         <span class="labelgrid"><i class="fas fa-users"></i></span>
         <span><%= @service.number_of_passengers %></span>
         <span class="labelgrid"><i class="fas fa-suitcase"></i></span>
-        <span><%= @service.number_hand_luggage %></span>
+        <span><%= @service.number_normal_luggage %></span>
       </div>
     </div>
 
@@ -34,7 +34,7 @@
     <h2><%= humanized_money_with_symbol(@service.final_price/100) %>€</h2>
 
       <p class="small">Price without commission: <%=(@service.car.price_per_hour)*(@service.number_hours_at_disposal)%> €<br />
-      Price with <%=@service.commission_rate %>% commission: <%=(@service.final_price)/100%> euros</p>
+      Price with <%=@service.commission_rate %>% commission: <%=(@service.final_price)/100%>€</p>
 
 <% if @service.status == "pending" %>
       <%= form_tag service_payments_path(@service) do %>

@@ -57,12 +57,12 @@
           <div class="item-e"><%= (service.commission_rate).round %>%</div>
           <div class="item-f">
             <% if service.status == "paid" %>
-              <div class="custom-badge-paid"><%= service.status %></div>
+              <span class="label label-success"><%= service.status %></span>
             <% else %>
-              <div class="custom-badge-done"><%= service.status %></div>
+              <span class="label label-primary"><%= service.status %></span>
             <% end %>
           </div>
-          <div class="item-g"><button type="button" class="btn btn-default btn-xs"><%= link_to "Edit", edit_service_path(service) %></button></div>
+          <div class="item-g"><%= link_to "Edit", edit_service_path(service), class: 'btn btn-link' %></div>
         </div>
       <% end %>
     <% end %>

@@ -53,15 +53,15 @@
     </div>
     <div class="show-edit">
 <% if @service.status == "pending" %>
-<p><%= link_to "Edit", edit_service_path(@service), method: :get, class: "btn btn-secondary"  %></p>
+<p><%= link_to "Edit", edit_service_path(@service), method: :get, class: "btn btn-default"  %></p>
                  <p><%= link_to "Cancel", service_path(@service),
                    method: :delete,
                    data: { confirm: "Are you sure?" },
-                   class: "btn btn-secondary" %></p>
+                   class: "btn btn-default" %></p>
 
 <% else %>
 <p><%= link_to "Go to Dashboard", dashboard_path, class: "btn btn-secondary" %></p>
-            <p><%=link_to "Export Invoice", send_invoice_email_client_service_path(@service), class: "btn btn-secondary"%></p>
+            <p><%=link_to "Export Invoice", send_invoice_email_client_service_path(@service), class: "btn btn-default"%></p>
 <% end %>
     </div>
   </div>
